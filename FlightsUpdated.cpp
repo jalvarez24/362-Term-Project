@@ -171,7 +171,7 @@ private:
 	int assignedSeat;
 };
 
-string Booking::Booking(string flightNum, string accountNum, int seat)
+Booking::Booking(string flightNum, string accountNum, int seat)
 {
 	flightNumber = flightNum;
 	accountNumber = accountNum;
@@ -188,7 +188,7 @@ string Booking::getAccountNumber()
 	return accountNumber;
 }
 
-string Booking::getAssignedSeat();
+int Booking::getAssignedSeat()
 {
 	return assignedSeat;
 }
