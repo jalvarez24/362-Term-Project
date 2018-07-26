@@ -1,3 +1,7 @@
+/*  Name: Danny Pham
+	Course: CPSC 362
+	Purpose: Holds user Account information*/
+
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
