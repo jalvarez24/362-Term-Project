@@ -1,3 +1,7 @@
+/*  Name: Danny Pham
+	Course: CPSC 362
+	Purpose: Holds user Account information*/
+
 #include "Account.h"
 
 int Account::id = 1;
