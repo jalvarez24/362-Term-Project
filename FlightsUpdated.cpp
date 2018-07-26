@@ -168,6 +168,19 @@ int main()
 		'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X',
 	};
 
+	// ========= Hardcoded admin accounts ===========
+	Account admin1 = Account("admin1", "admin", "Danny Pham", "N/A", "N/A", "10802 Stanford Ave, Garden Grove, CA 92840", "dpham92@csu.fullerton.edu", "Sept 22, 1992", "N/A", "(949) 631 - 1166", 'M');
+	Account admin2 = Account("admin2", "admin", "Brian Trinh", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", 'M');
+	Account admin3 = Account("admin3", "admin", "Royce Nguyen", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", 'M');
+	Account admin4 = Account("admin4", "admin", "Jayro Alvarez", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", 'M');
+	
+	vector<Account> accountList;
+	accountList.push_back(admin1);
+	accountList.push_back(admin2);
+	accountList.push_back(admin3);
+	accountList.push_back(admin4);
+	// ===============================================
+	
 	printHeader();
 
 	Flight flight1 = Flight("NE123", "CLT", "BOS", 7, 24, 2018, 800, 7, 24, 2018, 1015, seating);
