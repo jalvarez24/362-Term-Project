@@ -18,6 +18,7 @@ public:
 	string getFlightNumber();
 	string getAccountNumber();
 	int getAssignedSeat();
+	double getPrice();
 
 private:
 	string flightNumber;
