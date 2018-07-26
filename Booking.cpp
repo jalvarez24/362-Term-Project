@@ -36,3 +36,8 @@ int Booking::getAssignedSeat()
 {
 	return assignedSeat;
 }
+
+double Booking::getPrice()
+{
+	return price;
+}
