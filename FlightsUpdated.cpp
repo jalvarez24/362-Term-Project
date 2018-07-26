@@ -156,6 +156,42 @@ void printHeader()
 	cout << "-------------------------------------------------------------------------------\n";
 }
 
+class Booking
+{
+public: 
+	Booking(){};
+	~Booking(){};
+	Booking(string, string, int);
+	string getFlightNumber();
+	string getAccountNumber();
+	int getAssignedSeat();
+private:
+	string flightNumber;
+	string accountNumber;
+	int assignedSeat;
+};
+
+string Booking::Booking(string flightNum, string accountNum, int seat)
+{
+	flightNumber = flightNum;
+	accountNumber = accountNum;
+	assignedSeat = seat;
+}
+
+string Booking::getFlightNumber()
+{
+	return flightNumber;
+}
+
+string Booking::getAccountNumber()
+{
+	return accountNumber;
+}
+
+string Booking::getAssignedSeat();
+{
+	return assignedSeat;
+}
 
 int main()
 {
