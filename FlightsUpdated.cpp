@@ -102,10 +102,52 @@ void Flight::print()
 	{
 		cout << arrivalTime << "\t";
 	}
+	cout << endl;
 }
 void Flight::displaySeats() 
 {
-	cout << "Row "
+	cout << "\t\t\tROW#\n\t";
+	cout << "1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18";
+	cout << "\nS     A\t";
+	//first 18 seats
+	for (int x = 0; x < 18; x++)
+	{
+		if (seats[x] == 'X')
+		{
+			cout << "X  ";
+		}
+		else
+			cout << "O  ";
+	}
+	cout << "\nE     B\t";
+	for (int x = 18; x < 36; x++) 
+	{
+		if (seats[x] == 'X')
+		{
+			cout << "X  ";
+		}
+		else
+			cout << "O  ";
+	}
+	cout << "\nA     C\t";
+	for (int x = 36; x < 54; x++)
+	{
+		if (seats[x] == 'X')
+		{
+			cout << "X  ";
+		}
+		else
+			cout << "O  ";
+	}
+	cout << "\nT     D\t";
+	for (int x = 54; x < 72; x++) {
+		if (seats[x] == 'X')
+		{
+			cout << "X  ";
+		}
+		else
+			cout << "O  ";
+	}
 }
 
 void printHeader()
@@ -117,33 +159,22 @@ void printHeader()
 
 int main()
 {
+	//# of Rows: 18
+	//# of Seats per Row: 4
+	//Total Seats= 72
 	char seating[72] =
 	{
-		'X', 'X', 'X', 'X',
-		'X', 'O', 'O', 'O',
-		'O', 'X', 'X', 'X',
-		'X', 'X', 'O', 'X',
-		'O', 'O', 'X', 'X',
-		'X', 'O', 'X', 'O',
-		'X', 'O', 'X', 'X',
-		'O', 'O', 'O', 'O',
-		'X', 'X', 'X', 'X',
-		'X', 'O', 'X', 'X',
-		'X', 'O', 'X', 'O',
-		'X', 'X', 'X', 'X',
-		'O', 'X', 'O', 'O',
-		'O', 'O', 'X', 'X',
-		'X', 'X', 'X', 'X',
-		'X', 'X', 'X', 'X',
-		'O', 'O', 'O', 'X',
-		'X', 'O', 'O', 'X'
+		'X', 'X', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'O', 'O',
+		'X', 'X', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O',
+		'X', 'O', 'O', 'X', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'O',
+		'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X',
 	};
 
 	printHeader();
 
 	Flight flight1 = Flight("NE123", "CLT", "BOS", 7, 24, 2018, 800, 7, 24, 2018, 1015, seating);
 	flight1.print();
-
+	flight1.displaySeats();
 	cout << endl;
 	system("pause");
 	return 0;
