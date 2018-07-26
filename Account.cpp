@@ -10,6 +10,18 @@ Account::Account()
 {
 	accountID = id;
 	id++;
+	
+	userName = "N/A";
+	password = "N/A";
+	accountHolderName = "N/A";
+	creditCardNum = "N/A";
+	creditCardExpiration = "N/A";
+	billingAddress = "N/A";
+	email = "N/A";
+	dateOfBirth = "N/A";
+	homePhone = "N/A";
+	cellPhone = "N/A";
+	sex = '0';
 }
 
 Account::Account(string _username, string _pw, string _name, string _ccn, string _cce, string _addr, string _email, string _dob, string _home, string _cell, char _sex)
