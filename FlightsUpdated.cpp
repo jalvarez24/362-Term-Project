@@ -155,22 +155,6 @@ void printHeader()
 	cout << "FLIGHT NUMBER\tTO\tFROM\tDEPARTURE DATE\tARRIVAL DATE\tAVAILABLE SEATS\n";
 	cout << "-------------------------------------------------------------------------------\n";
 }
-
-class Booking
-{
-public: 
-	Booking(){};
-	~Booking(){};
-	Booking(string, string, int);
-	string getFlightNumber();
-	string getAccountNumber();
-	int getAssignedSeat();
-private:
-	string flightNumber;
-	string accountNumber;
-	int assignedSeat;
-};
-
 int main()
 {
 	//# of Rows: 18
