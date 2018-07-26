@@ -26,27 +26,4 @@ private:
 	double price;
 };
 
-Booking::Booking(string flightNum, string accountNum, int seat, double _price)
-{
-	flightNumber = flightNum;
-	accountNumber = accountNum;
-	assignedSeat = seat;
-	price = _price;
-}
-
-string Booking::getFlightNumber()
-{
-	return flightNumber;
-}
-
-string Booking::getAccountNumber()
-{
-	return accountNumber;
-}
-
-int Booking::getAssignedSeat()
-{
-	return assignedSeat;
-}
-
 #endif

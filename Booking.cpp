@@ -4,6 +4,16 @@ Booking class holds:
 */
 #include "Booking.h"
 
+Booking::Booking() 
+{
+
+}
+
+Booking::~Booking()
+{
+
+}
+
 Booking::Booking(string flightNum, string accountNum, int seat, double _price)
 {
 	flightNumber = flightNum;
