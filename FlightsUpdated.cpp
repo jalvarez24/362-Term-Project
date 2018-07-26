@@ -181,6 +181,39 @@ int main()
 	accountList.push_back(admin4);
 	// ===============================================
 	
+	// ============== Login Segment ==================
+	/*
+	cout << "Welcome to Northeast Airlines!\n";
+	cout << "Please enter your username (-1 to exit): ";
+
+	string username = "";
+	cin >> username;
+	bool userFound = false;
+
+	int accountListIter = 0;
+	while ((accountListIter < accountList.size()) && !userFound) {
+		if (accountList[accountListIter].getUsername() == username) {
+			userFound = true;
+		}
+		else {
+		accountListIter++;
+		}
+	}
+
+	if (!userFound) {
+		cout << "Username not found. Try again.";
+	}
+	else {
+		cout << "Please enter your password: ";
+		string pw = "";
+		cin >> pw;
+		if (accountList[accountListIter].validatePassword(pw)) {
+			cout << "Welcome, " << accountList[accountListIter].getName();
+		}
+	} */
+	
+	// ===============================================
+	
 	printHeader();
 
 	Flight flight1 = Flight("NE123", "CLT", "BOS", 7, 24, 2018, 800, 7, 24, 2018, 1015, seating);
