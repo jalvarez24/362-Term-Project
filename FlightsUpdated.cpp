@@ -171,28 +171,6 @@ private:
 	int assignedSeat;
 };
 
-Booking::Booking(string flightNum, string accountNum, int seat)
-{
-	flightNumber = flightNum;
-	accountNumber = accountNum;
-	assignedSeat = seat;
-}
-
-string Booking::getFlightNumber()
-{
-	return flightNumber;
-}
-
-string Booking::getAccountNumber()
-{
-	return accountNumber;
-}
-
-int Booking::getAssignedSeat()
-{
-	return assignedSeat;
-}
-
 int main()
 {
 	//# of Rows: 18
