@@ -22,7 +22,7 @@ public:
 
 private:
 	string flightNumber;
-	string accountNumber;
+	int accountNumber;
 	int assignedSeat;
 	double price;
 };
