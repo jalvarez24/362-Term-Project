@@ -14,7 +14,7 @@ Booking::~Booking()
 
 }
 
-Booking::Booking(string flightNum, string accountNum, int seat, double _price)
+Booking::Booking(string flightNum, int accountNum, int seat, double _price)
 {
 	flightNumber = flightNum;
 	accountNumber = accountNum;
@@ -27,7 +27,7 @@ string Booking::getFlightNumber()
 	return flightNumber;
 }
 
-string Booking::getAccountNumber()
+int Booking::getAccountNumber()
 {
 	return accountNumber;
 }
