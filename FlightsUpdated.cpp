@@ -52,7 +52,7 @@ int main()
 	Account admin1 = Account("admin1", "admin", "Danny Pham", "N/A", "N/A", "10802 Stanford Ave, Garden Grove, CA 92840", "dpham92@csu.fullerton.edu", "Sept 22, 1992", "N/A", "(949) 631 - 1166", "M");
 	Account admin2 = Account("admin2", "admin", "Brian Trinh", "N/A", "N/A", "13221 Newhope St, Garden Grove, CA, 92843", "briantrinh@csu.fullerton.edu", "May 18, 1994", "N/A", "(714) 723 - 1637", "M");
 	Account admin3 = Account("admin3", "admin", "Royce Nguyen", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "M");
-	Account admin4 = Account("admin4", "admin", "Jayro Alvarez", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "M");
+	Account admin4 = Account("admin4", "admin", "Jayro Alvarez", "N/A", "N/A", "16064 Mount Lister Ct, Fountain Valley, CA 92708", "jayroalvarez@csu.fullerton.edu", "March 28, 1997", "N/A", "(949) 345 - 9831", "M");
 	
 	vector<Account> accountList;
 	accountList.push_back(admin1);
