@@ -124,7 +124,7 @@ int main()
 			cin >> selection;
 
 			if (selection.compare("1") == 0) {
-				printHeader();
+				cout << "Searching flights" << endl;
 			}
 			else if (selection.compare("2") == 0) {
 				cout << "Booking flights" << endl;
@@ -144,6 +144,7 @@ int main()
 	// ===============================================
 	//Flight testing
 	//-----------------------------------------
+	printHeader();
 	flight1.print();
 	flight1.displaySeats();
 	//-----------------------------------------
