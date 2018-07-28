@@ -62,35 +62,69 @@ int main()
 	// ===============================================
 	*/
 	// ============== Login Segment ==================
-	/*
 	cout << "Welcome to Northeast Airlines!\n";
 	cout << "Please enter your username (-1 to exit): ";
 
 	string username = "";
-	cin >> username;
+	
 	bool userFound = false;
+	while ((username.compare("-1") != 0) && !userFound) {
+		cin >> username;
+		int accountListIter = 0;
+		while ((accountListIter < accountList.size()) && !userFound) {
+			if (accountList[accountListIter].getUsername() == username) {
+				userFound = true;
+			}
+			else {
+				accountListIter++;
+			}
+		}
 
-	int accountListIter = 0;
-	while ((accountListIter < accountList.size()) && !userFound) {
-		if (accountList[accountListIter].getUsername() == username) {
-			userFound = true;
+		if (!userFound) {
+			cout << "Username not found. Try again.\n";
 		}
 		else {
-		accountListIter++;
+			cout << "Please enter your password: ";
+			string pw = "";
+			cin >> pw;
+			if (accountList[accountListIter].validatePassword(pw)) {
+				cout << "Welcome, " << accountList[accountListIter].getName() << endl;
+			}
 		}
 	}
+	if (username.compare("-1") == 0) {
+		cout << "Exiting Northeast Airlines..." << endl;
+	}
+	if (userFound) {
+		
+		string selection = "";
+		
+		while (selection.compare("4") != 0) {
+			cout << "What would you like to do today?" << endl;
+			cout << "\t1) Search flights" << endl;
+			cout << "\t2) Book flights" << endl;
+			cout << "\t3) Review booked flights" << endl;
+			cout << "\t4) Sign out" << endl;
+			
+			cin >> selection;
 
-	if (!userFound) {
-		cout << "Username not found. Try again.";
-	}
-	else {
-		cout << "Please enter your password: ";
-		string pw = "";
-		cin >> pw;
-		if (accountList[accountListIter].validatePassword(pw)) {
-			cout << "Welcome, " << accountList[accountListIter].getName();
+			if (selection.compare("1") == 0) {
+				cout << "Searching for flights" << endl;
+			}
+			else if (selection.compare("2") == 0) {
+				cout << "Booking flights" << endl;
+			}
+			else if (selection.compare("3") == 0) {
+				cout << "Reviewing flights" << endl;
+			}
+			else if (selection.compare("4") == 0) {
+				cout << "Thank you for using Northeast Airlines. Have a great day!" << endl;
+			}
+			else {
+				cout << "Invalid selection." << endl;
+			}
 		}
-	} */
+	}
 	
 	// ===============================================
 	
