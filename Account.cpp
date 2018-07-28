@@ -102,6 +102,17 @@ string Account::getName() const
 	return accountHolderName;
 }
 
+string Account::getUsername() const
+{
+	return userName;
+}
+
+bool Account::validatePassword(string _pw) const
+{
+	return password == _pw;
+}
+
+
 void Account::print() const
 {
 	cout << "Hello, " << accountHolderName << "!\tID: " << accountID << "\n";
