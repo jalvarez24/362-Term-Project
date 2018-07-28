@@ -14,7 +14,7 @@ class Booking
 public:
 	Booking();
 	~Booking();
-	Booking(string, string, int, double);
+	Booking(string, int, int, double);
 	string getFlightNumber();
 	int getAccountNumber();
 	int getAssignedSeat();
