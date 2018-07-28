@@ -146,44 +146,44 @@ int main()
 			cin >> _userName;
 
 			cout << "Password: ";
-			getline(cin, _password);
-			cin >> ws;
+			cin >> _password;
+			
 
 			cout << "Full Name: ";
-			getline(cin, _accountHolderName);
 			cin >> ws;
+			getline(cin, _accountHolderName);
 
 			cout << "Sex: ";
-			getline(cin, _sex);
 			cin >> ws;
+			getline(cin, _sex);
 
 			cout << "Credit Card Number: ";
-			getline(cin, _creditCardNum);
 			cin >> ws;
+			getline(cin, _creditCardNum);
 
 			cout << "Credit Card Expiration: ";
-			getline(cin, _creditCardExpiration);
 			cin >> ws;
+			getline(cin, _creditCardExpiration);
 
 			cout << "Address: ";
-			getline(cin, _billingAddress);
 			cin >> ws;
+			getline(cin, _billingAddress);
 
 			cout << "Email: ";
-			getline(cin, _email);
 			cin >> ws;
+			getline(cin, _email);
 
 			cout << "Date of Birth: ";
-			getline(cin, _dateOfBirth);
 			cin >> ws;
+			getline(cin, _dateOfBirth);
 
 			cout << "Home Phone: ";
-			getline(cin, _homePhone);
 			cin >> ws;
+			getline(cin, _homePhone);
 
 			cout << "Cell Phone: ";
-			getline(cin, _cellPhone);
 			cin >> ws;
+			getline(cin, _cellPhone);
 
 			Account newAccount = Account(_userName, _password, _accountHolderName, _creditCardNum, _creditCardExpiration, _billingAddress, _email, _dateOfBirth, _homePhone, _cellPhone, _sex);
 			accountList.push_back(newAccount);
@@ -193,7 +193,6 @@ int main()
 			userValidated = true;
 			username = _userName;	
 
-			cin.get();
 		}
 		else {
 			cout << "Invalid input. Please try again." << endl;
@@ -205,9 +204,9 @@ int main()
 	if (userFound && userValidated) {
 		
 		cout << "Welcome " << accountList[accountListIter].getName() << "!\n";
+		accountList[accountListIter].print();
 
 		string selection = "";
-		cin.get();
 		while (selection.compare("4") != 0) {
 			cout << "What would you like to do today?" << endl;
 			cout << "\t1) Search flights" << endl;

@@ -119,4 +119,11 @@ void Account::print() const
 	cout << "Addr: " << billingAddress << endl;
 	cout << "Home Phone: " << homePhone << endl;
 	cout << "Cell Phone: " << cellPhone << endl;
+	cout << "Credit Card Num: " << creditCardNum << endl;
+	cout << "Credit Card Exp: " << creditCardExpiration << endl;
+	cout << "Email: " << email << endl;
+	cout << "DOB: " << dateOfBirth << endl;
+	cout << "Sex: " << sex << endl;
+	cout << "Username: " << userName << endl;
+	cout << "PW: " << password << endl;
 }
