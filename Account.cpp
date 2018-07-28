@@ -87,7 +87,7 @@ void Account::setHomePhone(string _home)
 	homePhone = _home;
 }
 
-void Account::setCellPone(string _cell)
+void Account::setCellPhone(string _cell)
 {
 	cellPhone = _cell;
 }
