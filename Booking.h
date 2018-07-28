@@ -16,7 +16,7 @@ public:
 	~Booking();
 	Booking(string, string, int, double);
 	string getFlightNumber();
-	string getAccountNumber();
+	int getAccountNumber();
 	int getAssignedSeat();
 	double getPrice();
 
