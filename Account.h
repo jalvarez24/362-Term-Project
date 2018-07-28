@@ -29,6 +29,9 @@ public:
 	
 	int getID() const;
 	string getName() const;
+	string getUsername() const;
+
+	bool validatePassword(string) const;
 
 	void print() const;
 
