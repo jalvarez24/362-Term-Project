@@ -13,7 +13,7 @@ class Account
 {
 public:
 	Account();
-	Account(string, string, string, string, string, string, string, string, string, string, char);
+	Account(string, string, string, string, string, string, string, string, string, string, string);
 
 	~Account();
 
@@ -50,7 +50,7 @@ private:
 	string dateOfBirth;
 	string homePhone;
 	string cellPhone;
-	char sex;
+	string sex;
 
 	static int id;
 };

@@ -24,7 +24,7 @@ Account::Account()
 	sex = '0';
 }
 
-Account::Account(string _username, string _pw, string _name, string _ccn, string _cce, string _addr, string _email, string _dob, string _home, string _cell, char _sex)
+Account::Account(string _username, string _pw, string _name, string _ccn, string _cce, string _addr, string _email, string _dob, string _home, string _cell, string _sex)
 {
 	accountID = id;
 	id++;
