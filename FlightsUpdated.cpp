@@ -73,6 +73,18 @@ int main()
 	Flight flight8 = Flight("NE912", "LGA", "BOS", 8, 1, 2018, 700, 8, 1, 2018, 850, seating4, 375.99);
 	Flight flight9 = Flight("NE266", "CLT", "BUF", 8, 1, 2018, 1230, 8, 1, 2018, 1420, seating1, 450.00);
 	Flight flight10 = Flight("NE397", "PHL", "CLT", 8, 1, 2018, 1500, 8, 1, 2018, 1645, seating2, 379.50);
+	
+	vector<Flight> flightList;
+	flightList.push_back(flight1);
+	flightList.push_back(flight2);
+	flightList.push_back(flight3);
+	flightList.push_back(flight4);
+	flightList.push_back(flight5);
+	flightList.push_back(flight6);
+	flightList.push_back(flight7);
+	flightList.push_back(flight8);
+	flightList.push_back(flight9);
+	flightList.push_back(flight10);
 	//-----------------------------------------
 	
 	// ============== Login Segment ==================
