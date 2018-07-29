@@ -127,3 +127,8 @@ double Flight::getprice()
 {
 	return price;
 }
+
+void addFlight(Flight flight)
+{
+	flightList.push_back(flight);
+}
