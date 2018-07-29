@@ -25,7 +25,7 @@ public:
 	void setEmail(string);
 	void setDateOfBirth(string);
 	void setHomePhone(string);
-	void setCellPone(string);
+	void setCellPhone(string);
 	
 	int getID() const;
 	string getName() const;
