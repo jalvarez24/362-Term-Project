@@ -127,3 +127,14 @@ void Account::print() const
 	cout << "Username: " << userName << endl;
 	cout << "PW: " << password << endl;
 }
+
+void Account::addBooking(string _flightNum, int _accNum, int _seat)
+{
+	bookingslist.push_back(Booking(_flightNum, _accNum, _seat);
+}
+			       
+void Account::reviewBookings() const
+{
+	//Review Bookings Header to align info. 
+	//Print to screen: all bookings inside of bookingslist vector
+}
