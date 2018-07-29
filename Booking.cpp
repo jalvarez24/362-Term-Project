@@ -10,14 +10,13 @@ Booking::Booking(){}
 
 Booking::~Booking(){}
 
-Booking::Booking(string flightNum, int accountNum, int seat, double _price)
+Booking::Booking(string flightNum, int accountNum, int seat)
 {
 	bookingID = id;
 	id++;
 	flightNumber = flightNum;
 	accountNumber = accountNum;
 	assignedSeat = seat;
-	price = _price;
 }
 
 int Booking::getBookingID()
@@ -38,9 +37,4 @@ int Booking::getAccountNumber()
 int Booking::getAssignedSeat()
 {
 	return assignedSeat;
-}
-
-double Booking::getPrice()
-{
-	return price;
 }
