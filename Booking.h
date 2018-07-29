@@ -14,19 +14,17 @@ class Booking
 public:
 	Booking();
 	~Booking();
-	Booking(string, int, int, double);
+	Booking(string, int, int);
 	int getBookingID();
 	string getFlightNumber();
 	int getAccountNumber();
 	int getAssignedSeat();
-	double getPrice();
 
 private:
 	int bookingID;
 	string flightNumber;
 	int accountNumber;
 	int assignedSeat;
-	double price;
 	
 	static int id;
 };
