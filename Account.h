@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "Booking.h"
 using namespace std;
 
 class Account
@@ -34,9 +35,10 @@ public:
 	bool validatePassword(string) const;
 
 	void print() const;
+	
+	void addBooking(string, int, int);	
 
-
-
+	void reviewBookings() const;
 
 private:
 	int accountID;
@@ -53,6 +55,8 @@ private:
 	string sex;
 
 	static int id;
+	
+	vector<Booking> bookingslist;
 };
 
 #endif
