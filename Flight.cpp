@@ -4,7 +4,7 @@ Flight::Flight(){}
 
 Flight::~Flight(){}
 
-Flight::Flight(string flightNum, string toLoc, string fromLoc, int depMonth, int depDay, int depYear, int depTime, int arrMonth, int arrDay, int arrYear, int arrTime, char seating[]) 
+Flight::Flight(string flightNum, string toLoc, string fromLoc, int depMonth, int depDay, int depYear, int depTime, int arrMonth, int arrDay, int arrYear, int arrTime, char seating[], double _price) 
 {
 	flightNumber = flightNum;
 	toLocation = toLoc;
@@ -17,7 +17,8 @@ Flight::Flight(string flightNum, string toLoc, string fromLoc, int depMonth, int
 	arrivalDay = arrDay;
 	arrivalYear = arrYear;
 	arrivalTime = arrTime;
-	for (int x = 0; x <= 72; x++)
+	price = _price;
+	for (int x = 0; x < 72; x++)
 	{
 		seats[x] = seating[x];
 	}
@@ -120,4 +121,9 @@ void Flight::displaySeats()
 		else
 			cout << "O  ";
 	}
+}
+
+double Flight::getprice()
+{
+	return price;
 }
