@@ -32,6 +32,8 @@ public:
 	void displaySeats();
 	
 	double getprice();
+	
+	void addFlight(Flight);
 
 private:
 
@@ -60,6 +62,8 @@ private:
 	char seats[72];
 	
 	double price;
+	
+	vector<Flight> flightList;
 
 };
 
