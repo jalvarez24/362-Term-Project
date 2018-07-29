@@ -62,8 +62,6 @@ private:
 	char seats[72];
 	
 	double price;
-	
-	vector<Flight> flightList;
 
 };
 
