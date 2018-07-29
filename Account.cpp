@@ -130,7 +130,7 @@ void Account::print() const
 
 void Account::addBooking(string _flightNum, int _accNum, int _seat)
 {
-	bookingslist.push_back(Booking(_flightNum, _accNum, _seat);
+	bookingslist.push_back(Booking(_flightNum, _accNum, _seat));
 }
 			       
 void Account::reviewBookings() const
