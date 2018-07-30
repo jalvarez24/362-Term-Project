@@ -14,6 +14,35 @@ void printHeader()
 	cout << "-------------------------------------------------------------------------------\n";
 }
 
+//takes int seat value and returns in plane format (i.e: B16, D4, etc.)
+string seatconverter(int x)
+{
+	int xplusone = x + 1;
+	string seatnum = to_string(xplusone);
+	string seat = "";
+	if(x < 18)
+	{
+		seat += "A";
+		seat += seatnum;
+	}
+	else if (x >= 18 && x < 36)
+	{
+		seat += "B";
+		seat += seatnum;
+	}
+	else if (x >= 36 && x < 54)
+	{
+		seat += "C";
+		seat += seatnum;
+	}
+	else
+	{
+		seat += "D";
+		seat += seatnum;
+	}
+	return seat;
+}
+
 int main()
 {
 	//# of Rows: 18
