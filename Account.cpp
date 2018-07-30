@@ -136,5 +136,12 @@ void Account::addBooking(string _flightNum, int _accNum, int _seat)
 void Account::reviewBookings() const
 {
 	//Review Bookings Header to align info. 
+	cout << "Booking ID:\t" << "Flight#:\t" << "Seat:\n";
+
 	//Print to screen: all bookings inside of bookingslist vector
+	for (int x = 0; x < bookingslist.size(); x ++)
+	{
+		cout << bookingslist[x].bookingID << "\t\t" << bookingslist[x].flightNumber << "\t\t" << 
+		bookingslist[x].assignedSeat << endl;
+	}
 }
