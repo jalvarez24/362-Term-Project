@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 #include "Account.h"
 #include "Booking.h"
 #include "Flight.h"
@@ -132,10 +133,11 @@ int main()
 		cout << "\t1) Login" << endl;
 		cout << "\t2) Sign up" << endl;
 		cin >> selection;
-		
+		system("CLS");
 		
 		// ==== Login ====
 		if (selection.compare("1") == 0) {
+			cout << "\t\t\tUSER LOGIN" << endl;
 			cout << "Please enter your username (-1 to exit): ";
 			cin >> username;
 
@@ -163,10 +165,13 @@ int main()
 					cout << "Incorrect Password!" << endl;
 				}
 			}
+			system("CLS");
+			cout << flush;
 		}
 
 		// ==== Sign up ====
 		else if (selection.compare("2") == 0) {
+			cout << "\t\t\tUSER SIGN UP" << endl;
 			string _userName;
 			string _password;
 			string _accountHolderName;
@@ -244,11 +249,13 @@ int main()
 	}
 	if (userFound && userValidated) {
 		
-		cout << "Welcome " << accountList[accountListIter].getName() << "!\n";
-		accountList[accountListIter].print();
+		cout << "\t\tWELCOME" << endl;
+		//accountList[accountListIter].getName() << "!\n";
+		//accountList[accountListIter].print();
 
 		string selection = "";
-		while (selection.compare("4") != 0) {
+		while (selection.compare("4") != 0) 
+		{
 			cout << "What would you like to do today?" << endl;
 			cout << "\t1) Search flights" << endl;
 			cout << "\t2) Book flights" << endl;
@@ -256,20 +263,185 @@ int main()
 			cout << "\t4) Sign out" << endl;
 			cin >> ws;
 			getline(cin, selection);
+			system("CLS");
+			cout << flush;
 
-			if (selection.compare("1") == 0) {
-				cout << "Searching flights" << endl;
+			if (selection.compare("1") == 0)
+			{
+				int choice;
+				//cout << "Searching flights" << endl;
+				cout << "How would you like to search flights? " << endl;
+				cout << "\t1) Flight number" << endl;
+				cout << "\t2) Departure location" << endl;
+				cout << "\t3) Arrival location" << endl;
+				cout << "\t4) View all flights" << endl;
+
+				cin >> choice;
+				system("CLS");
+				cout << flush;
+				string searchString;
+				string flightChoice;
+				string seatChoice;
+				if (choice == 1) // By flight #
+				{
+					cout << "\t\t\tSEARCH BY FLIGHT NUMBER" << endl;
+					cout << "Enter flight number: ";
+					cin >> searchString;
+					system("CLS");
+					cout << flush;
+
+					cout << "\t\t\t\tSEARCH RESULTS" << endl << endl;
+					printHeader();
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (searchString == flightList[i].getFlightNumber())
+						{
+							flightList[i].print();
+						}
+					}
+					cout << endl << endl;
+					cout << "Select flight (Enter flight number): ";
+					cin >> flightChoice;
+
+					system("CLS");
+					cout << flush;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightList[i].displaySeats();
+						}
+					}
+					cout << "\nSelect seat(s): ";
+					cin >> seatChoice;
+				}
+
+				else if (choice == 2) // By departure location
+				{
+					string depLoc;
+					cout << "\t\t\tSEARCH BY DEPARTURE LOCATION" << endl;
+					cout << "Enter departure airport: ";
+					cin >> searchString;
+					system("CLS");
+					cout << flush;
+
+					cout << "\t\t\t\tSEARCH RESULTS" << endl << endl;
+					printHeader();
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (searchString == flightList[i].getDepartureLocation())
+						{
+							flightList[i].print();
+						}
+					}
+					cout << endl << endl;
+					cout << "Select flight (Enter flight number): ";
+					cin >> flightChoice;
+
+					system("CLS");
+					cout << flush;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightList[i].displaySeats();
+						}
+					}
+					cout << "\nSelect seat(s): ";
+					cin >> seatChoice;
+				}
+
+				else if (choice == 3) // By arrival location
+				{
+					string arrLoc;
+					cout << "\t\t\tSEARCH BY ARRIVAL LOCATION" << endl;
+					cout << "Enter arrival airport: ";
+					cin >> searchString;
+					system("CLS");
+					cout << flush;
+
+
+					cout << "\t\t\t\tSEARCH RESULTS" << endl << endl;
+					printHeader();
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (searchString == flightList[i].getArrivalLocation())
+						{
+							flightList[i].print();
+						}
+					}
+					cout << endl << endl;
+					cout << "Select flight (Enter flight number): ";
+					cin >> flightChoice;
+
+					system("CLS");
+					cout << flush;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightList[i].displaySeats();
+						}
+					}
+					cout << "\nSelect seat(s): ";
+					cin >> seatChoice;
+				}
+
+				else if (choice == 4) // View all flights
+				{
+					cout << "\t\t\t\tALL AVAILABLE FLIGHTS" << endl << endl;
+					printHeader();
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						flightList[i].print();
+					}
+					cout << endl << endl;
+					cout << "Select flight (Enter flight number): ";
+					cin >> flightChoice;
+
+					system("CLS");
+					cout << flush;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightList[i].displaySeats();
+						}
+					}
+					cout << "\nSelect seat(s): ";
+					cin >> seatChoice;
+				}
+
+				
+				/*for (int i = 0; i < flightList.size(); i++)
+				{
+					flightList[i].print();
+				}*/
+				/*cout << "Select a flight: ";
+				cin >> selection;
+
+				for (int i = 0; i < flightList.size(); i++)
+				{
+					if (flightList[i].getFlightNumber() == selection)
+					{
+						flightList[i].print();
+					}
+				}*/
 			}
-			else if (selection.compare("2") == 0) {
+			else if (selection.compare("2") == 0) 
+			{
 				cout << "Booking flights" << endl;
 			}
-			else if (selection.compare("3") == 0) {
+			else if (selection.compare("3") == 0) 
+			{
 				cout << "Reviewing flights" << endl;
 			}
-			else if (selection.compare("4") == 0) {
+			else if (selection.compare("4") == 0) 
+			{
 				cout << "Thank you for using Northeast Airlines. Have a great day!" << endl;
 			}
-			else {
+			else 
+			{
 				cout << "Invalid selection." << endl;
 			}
 		}
@@ -278,9 +450,9 @@ int main()
 	// ===============================================
 	//Flight testing
 	//-----------------------------------------
-	printHeader();
-	flight1.print();
-	flight1.displaySeats();
+	//printHeader();
+	//flight1.print();
+	//flight1.displaySeats();
 	//-----------------------------------------
 	
 	
