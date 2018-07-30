@@ -19,13 +19,12 @@ public:
 	string getFlightNumber();
 	int getAccountNumber();
 	int getAssignedSeat();
-
-private:
 	int bookingID;
 	string flightNumber;
 	int accountNumber;
 	int assignedSeat;
-	
+
+private:
 	static int id;
 };
 
