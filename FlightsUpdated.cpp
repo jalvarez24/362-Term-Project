@@ -254,7 +254,7 @@ int main()
 			cout << "\t2) Book flights" << endl;
 			cout << "\t3) Review booked flights" << endl;
 			cout << "\t4) Sign out" << endl;
-			
+			cin >> ws;
 			getline(cin, selection);
 
 			if (selection.compare("1") == 0) {
