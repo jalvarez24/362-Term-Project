@@ -497,6 +497,67 @@ int main()
 							cout << "==================================================" << endl;
 							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
 							cout << "==================================================" << endl;
+							cout << "1. Pay for flight with CC on account" << endl;
+							cout << "2. Cancel and return to main menu" << endl;
+							cin >> choice;
+							if (choice == 1)
+							{
+								if(accountList[accountListIter].checkCC() == false)
+								{
+									system("CLS");
+									string ccNum, ccExp;
+									cout << "\tERROR, NO CREDIT CARD ON ACCOUNT." << endl;
+									cout << "Please enter following credit card information: " << endl;
+									cout << "Enter 16 digit Credit Card: ";
+									cin >> ccNum;
+									accountList[accountListIter].setCreditCardNum(ccNum);
+									cout << "Enter expiration date in format MM/YYYY: ";
+									cin >> ccExp;
+									accountList[accountListIter].setCreditCardExpiration(ccExp);
+									system("CLS");
+									cout << "Credit card: " << accountList[accountListIter].getCreditCardNum() << " has been saved." << endl;
+									cout << "==================================================" << endl;
+									cout << "Continue with charge of: " << flightList[selectedFlight].getprice() << "?" << endl;
+									cout << "1. Yes" << endl;
+									cout << "2. Cancel and return to main menu" << endl;
+									cin >> choice;
+									if (choice == 1)
+									{
+										system("CLS");
+										//update seating array for specified flight
+										flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+										//add booking to account
+										accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+										cout << "\t\tSUCCESS!" << endl;
+										cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+										cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+										cout << "==================================================" << endl;
+									}
+									else if (choice == 2)
+									{
+										//do nothing, return to main menu
+										system("CLS");
+									}
+								}
+								else
+								{
+									system("CLS");
+									//update seating array for specified flight
+									flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+									//add booking to account
+									accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+									cout << "\t\tSUCCESS!" << endl;
+									cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+									cout << "Card Used: " << accountList[accountListIter].getCreditCardNum() << endl;
+									cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+									cout << "==================================================" << endl;
+								}
+							}
+							else if(choice == 2)
+							{
+								//do nothing, return to main menu
+								system("CLS");
+							}
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -585,6 +646,67 @@ int main()
 							cout << "==================================================" << endl;
 							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
 							cout << "==================================================" << endl;
+							cout << "1. Pay for flight with CC on account" << endl;
+							cout << "2. Cancel and return to main menu" << endl;
+							cin >> choice;
+							if (choice == 1)
+							{
+								if (accountList[accountListIter].checkCC() == false)
+								{
+									system("CLS");
+									string ccNum, ccExp;
+									cout << "\tERROR, NO CREDIT CARD ON ACCOUNT." << endl;
+									cout << "Please enter following credit card information: " << endl;
+									cout << "Enter 16 digit Credit Card: ";
+									cin >> ccNum;
+									accountList[accountListIter].setCreditCardNum(ccNum);
+									cout << "Enter expiration date in format MM/YYYY: ";
+									cin >> ccExp;
+									accountList[accountListIter].setCreditCardExpiration(ccExp);
+									system("CLS");
+									cout << "Credit card: " << accountList[accountListIter].getCreditCardNum() << " has been saved." << endl;
+									cout << "==================================================" << endl;
+									cout << "Continue with charge of: " << flightList[selectedFlight].getprice() << "?" << endl;
+									cout << "1. Yes" << endl;
+									cout << "2. Cancel and return to main menu" << endl;
+									cin >> choice;
+									if (choice == 1)
+									{
+										system("CLS");
+										//update seating array for specified flight
+										flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+										//add booking to account
+										accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+										cout << "\t\tSUCCESS!" << endl;
+										cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+										cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+										cout << "==================================================" << endl;
+									}
+									else if (choice == 2)
+									{
+										//do nothing, return to main menu
+										system("CLS");
+									}
+								}
+								else
+								{
+									system("CLS");
+									//update seating array for specified flight
+									flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+									//add booking to account
+									accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+									cout << "\t\tSUCCESS!" << endl;
+									cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+									cout << "Card Used: " << accountList[accountListIter].getCreditCardNum() << endl;
+									cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+									cout << "==================================================" << endl;
+								}
+							}
+							else if (choice == 2)
+							{
+								//do nothing, return to main menu
+								system("CLS");
+							}
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -674,6 +796,67 @@ int main()
 							cout << "==================================================" << endl;
 							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
 							cout << "==================================================" << endl;
+							cout << "1. Pay for flight with CC on account" << endl;
+							cout << "2. Cancel and return to main menu" << endl;
+							cin >> choice;
+							if (choice == 1)
+							{
+								if (accountList[accountListIter].checkCC() == false)
+								{
+									system("CLS");
+									string ccNum, ccExp;
+									cout << "\tERROR, NO CREDIT CARD ON ACCOUNT." << endl;
+									cout << "Please enter following credit card information: " << endl;
+									cout << "Enter 16 digit Credit Card: ";
+									cin >> ccNum;
+									accountList[accountListIter].setCreditCardNum(ccNum);
+									cout << "Enter expiration date in format MM/YYYY: ";
+									cin >> ccExp;
+									accountList[accountListIter].setCreditCardExpiration(ccExp);
+									system("CLS");
+									cout << "Credit card: " << accountList[accountListIter].getCreditCardNum() << " has been saved." << endl;
+									cout << "==================================================" << endl;
+									cout << "Continue with charge of: " << flightList[selectedFlight].getprice() << "?" << endl;
+									cout << "1. Yes" << endl;
+									cout << "2. Cancel and return to main menu" << endl;
+									cin >> choice;
+									if (choice == 1)
+									{
+										system("CLS");
+										//update seating array for specified flight
+										flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+										//add booking to account
+										accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+										cout << "\t\tSUCCESS!" << endl;
+										cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+										cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+										cout << "==================================================" << endl;
+									}
+									else if (choice == 2)
+									{
+										//do nothing, return to main menu
+										system("CLS");
+									}
+								}
+								else
+								{
+									system("CLS");
+									//update seating array for specified flight
+									flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+									//add booking to account
+									accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+									cout << "\t\tSUCCESS!" << endl;
+									cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+									cout << "Card Used: " << accountList[accountListIter].getCreditCardNum() << endl;
+									cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+									cout << "==================================================" << endl;
+								}
+							}
+							else if (choice == 2)
+							{
+								//do nothing, return to main menu
+								system("CLS");
+							}
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -752,6 +935,67 @@ int main()
 							cout << "==================================================" << endl;
 							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
 							cout << "==================================================" << endl;
+							cout << "1. Pay for flight with CC on account" << endl;
+							cout << "2. Cancel and return to main menu" << endl;
+							cin >> choice;
+							if (choice == 1)
+							{
+								if (accountList[accountListIter].checkCC() == false)
+								{
+									system("CLS");
+									string ccNum, ccExp;
+									cout << "\tERROR, NO CREDIT CARD ON ACCOUNT." << endl;
+									cout << "Please enter following credit card information: " << endl;
+									cout << "Enter 16 digit Credit Card: ";
+									cin >> ccNum;
+									accountList[accountListIter].setCreditCardNum(ccNum);
+									cout << "Enter expiration date in format MM/YYYY: ";
+									cin >> ccExp;
+									accountList[accountListIter].setCreditCardExpiration(ccExp);
+									system("CLS");
+									cout << "Credit card: " << accountList[accountListIter].getCreditCardNum() << " has been saved." << endl;
+									cout << "==================================================" << endl;
+									cout << "Continue with charge of: " << flightList[selectedFlight].getprice() << "?" << endl;
+									cout << "1. Yes" << endl;
+									cout << "2. Cancel and return to main menu" << endl;
+									cin >> choice;
+									if (choice == 1)
+									{
+										system("CLS");
+										//update seating array for specified flight
+										flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+										//add booking to account
+										accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+										cout << "\t\tSUCCESS!" << endl;
+										cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+										cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+										cout << "==================================================" << endl;
+									}
+									else if (choice == 2)
+									{
+										//do nothing, return to main menu
+										system("CLS");
+									}
+								}
+								else
+								{
+									system("CLS");
+									//update seating array for specified flight
+									flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+									//add booking to account
+									accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+									cout << "\t\tSUCCESS!" << endl;
+									cout << "\tBOOKING ADDED TO ACCOUNT." << endl;
+									cout << "Card Used: " << accountList[accountListIter].getCreditCardNum() << endl;
+									cout << "*(Review flights from main menu to edit booking(s)*" << endl;
+									cout << "==================================================" << endl;
+								}
+							}
+							else if (choice == 2)
+							{
+								//do nothing, return to main menu
+								system("CLS");
+							}
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -762,9 +1006,58 @@ int main()
 						}	
 				}
 			}
-			else if (selection.compare("2") == 0) 
+			else if (selection.compare("2") == 0)
 			{
-				accountList[accountListIter].reviewBookings();
+				if (accountList[accountListIter].isBookingsEmpty() == true)
+				{
+					cout << "No bookings were found on account. " << endl;
+					cout << "Returning to main menu." << endl;
+				}
+				else
+				{
+					string reviewMenuSelect;
+					accountList[accountListIter].reviewBookings();
+					cout << "Enter flight you want to modify, book, or print flight info for: " << endl;
+					cout << "(Enter 0 to go back to main menu)" << endl;
+					cout << "Flight #: ";
+					cin >> reviewMenuSelect;
+					if (reviewMenuSelect != "0")
+					{
+						system("CLS");
+						cout << "\tFlight Chosen: " << reviewMenuSelect << endl;
+						cout << "Choose option below: " << endl;
+						cout << "\t1. Modify Flight " << endl;
+						cout << "\t2. Cancel Booking " << endl;
+						cout << "\t3. Print Flight Information " << endl;
+						cout << "\t4. Return to main menu " << endl;
+						cin >> reviewMenuSelect;
+						if (reviewMenuSelect == "1")
+						{
+							//insert modify function
+						}
+						else if (reviewMenuSelect == "2")
+						{
+							//insert cancel booking function
+						}
+						else if (reviewMenuSelect == "3")
+						{
+							//insert cancel booking function
+						}
+						else if (reviewMenuSelect == "4")
+						{
+							//do nothing
+							//clear screen and go back to main menu
+							system("CLS");
+						}
+					}
+					else
+					{
+						//do nothing
+						//clear screen and go back to main menu
+						system("CLS");
+					}
+
+				}
 			}
 			else if (selection.compare("3") == 0) 
 			{

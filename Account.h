@@ -32,6 +32,7 @@ public:
 	int getID() const;
 	string getName() const;
 	string getUsername() const;
+	string getCreditCardNum();
 
 	bool validatePassword(string) const;
 
@@ -39,7 +40,13 @@ public:
 	
 	void addBooking(string, int, int);	
 
-	void reviewBookings() const;
+	void reviewBookings();
+
+	bool checkCC();
+
+	string seatIntToStr(int);
+
+	bool isBookingsEmpty();
 
 private:
 	int accountID;

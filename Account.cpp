@@ -133,25 +133,97 @@ void Account::addBooking(string _flightNum, int _accNum, int _seat)
 	bookingslist.push_back(Booking(_flightNum, _accNum, _seat));
 }
 			       
-void Account::reviewBookings() const
+void Account::reviewBookings() 
 {
 	cout << "\t\tREVIEWING FLIGHTS\n";
-	if(bookingslist.empty())
-	{
-		cout << flush;
-		cout << "No bookings were found on account. " << endl;
-		cout << "Returning to main menu." << endl;
-	}
-	else
-	{
-		//Review Bookings Header to align info. 
+	//Review Bookings Header to align info. 
 		cout << "Booking ID:\t" << "Flight#:\t" << "Seat:\n";
 
 		//Print to screen: all bookings inside of bookingslist vector
 		for (int x = 0; x < bookingslist.size(); x ++)
 		{
 			cout << bookingslist[x].bookingID << "\t\t" << bookingslist[x].flightNumber << "\t\t" << 
-			bookingslist[x].assignedSeat << endl;
+			seatIntToStr(bookingslist[x].assignedSeat) << endl;
 		}
+		cout << "==================================================" << endl;
+}
+
+bool Account::checkCC()
+{ 
+	if (creditCardNum != "N/A" && creditCardExpiration != "N/A")
+	{
+		return true;
 	}
+	else
+		return false;
+}
+string Account::getCreditCardNum()
+{
+	return creditCardNum;
+}
+
+//takes in seat# as int in seating array, returns seat# as string version
+//(i.e: input 0 => returns "A1")
+//(i.e: input 71 => returns "D18")
+//(i.e: input 4 => "A2"
+string Account::seatIntToStr(int x)
+{
+	string seatstring = "";
+	int seatnum = x + 1;
+
+	if (x == 0 || x == 4 || x == 8 || x == 12 || x == 16 || x == 20 || x == 24 ||
+		x == 28 || x == 32 || x == 36 || x == 40 || x == 44 || x == 48 || x == 52 ||
+		x == 56 || x == 60 || x == 64 || x == 68)
+	{
+		seatstring += "A";
+		if (x >= 4)
+			seatnum = (seatnum / 4) + 1;
+		seatstring += to_string(seatnum);
+	}
+	else if (x == 1 || x == 5 || x == 9 || x == 13 || x == 17 || x == 21 || x == 25 ||
+		x == 29 || x == 33 || x == 37 || x == 41 || x == 45 || x == 49 || x == 53 ||
+		x == 57 || x == 61 || x == 65 || x == 69)
+	{
+		seatstring += "B";
+		if (x >= 5)
+		{
+			seatnum = (seatnum / 4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+			seatstring += to_string(seatnum - 1);
+	}
+	else if (x == 2 || x == 6 || x == 10 || x == 14 || x == 18 || x == 22 || x == 26 ||
+		x == 30 || x == 34 || x == 38 || x == 42 || x == 46 || x == 50 || x == 54 ||
+		x == 58 || x == 62 || x == 66 || x == 70)
+	{
+		seatstring += "C";
+		if (x >= 6)
+		{
+			seatnum = (seatnum / 4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+			seatstring += to_string(seatnum - 2);
+	}
+	else
+	{
+		seatstring += "D";
+		if (x >= 7)
+		{
+			seatnum = (x / 4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+			seatstring += to_string(seatnum - 3);
+	}
+	return seatstring;
+}
+
+bool Account::isBookingsEmpty()
+{
+	if (bookingslist.empty() == true)
+		return true;
+	else
+		return false;
 }
