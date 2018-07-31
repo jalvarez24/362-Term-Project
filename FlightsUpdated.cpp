@@ -466,7 +466,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					//pay for flight
@@ -476,7 +476,7 @@ int main()
 						cout << "INVALID menu choice. Try again." << endl;
 						cout << "Seat, " << seatChoice << ", has been selected." << endl;
 						cout << "Would you like to:" << endl;
-						cout << "\t1) Pay for flight and add to bookings" << endl;
+						cout << "\t1) Pay for flight and add add to bookings" << endl;
 						cout << "\t2) Return to Main Menu and lose progress" << endl;
 						cin >> choice;
 					}	
@@ -617,7 +617,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					//pay for flight
