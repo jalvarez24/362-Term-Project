@@ -466,7 +466,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and add to bookings" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -475,14 +475,28 @@ int main()
 						cout << "INVALID menu choice. Try again." << endl;
 						cout << "Seat, " << seatChoice << ", has been selected." << endl;
 						cout << "Would you like to:" << endl;
-						cout << "\t1) Pay for flight and add add to bookings" << endl;
+						cout << "\t1) Pay for flight and add to bookings" << endl;
 						cout << "\t2) Return to Main Menu and lose progress" << endl;
 						cin >> choice;
 					}	
 						//pay for flight
 						if (choice == 1)
 						{
-					
+							system("CLS");
+							cout << flush;
+							cout << "\t\tPAY FOR FLIGHT" << endl;
+							cout << "\t\t==============" << endl;
+							cout << "Flight Summary:  " << endl;
+							cout << "Flight#: " << right << setw(41) << flightList[selectedFlight].getFlightNumber() << endl;
+							cout << "Departing: " << right << setw(22) << flightList[selectedFlight].getDepartureLocation()
+							<< "- " << flightList[selectedFlight].getDepartureDate() <<  " @ " << right << setw(4) << 
+							flightList[selectedFlight].getDepartureTime() << endl;
+							cout << "Arriving: " << right << setw(23) << flightList[selectedFlight].getArrivalLocation()
+							<< "- " << flightList[selectedFlight].getArrivalDate() << " @ " << right << setw(4) <<
+							flightList[selectedFlight].getArrivalTime() << endl;
+							cout << "==================================================" << endl;
+							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
+							cout << "==================================================" << endl;
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -556,7 +570,21 @@ int main()
 						//pay for flight
 						if (choice == 1)
 						{
-					
+							system("CLS");
+							cout << flush;
+							cout << "\t\tPAY FOR FLIGHT" << endl;
+							cout << "\t\t==============" << endl;
+							cout << "Flight Summary:  " << endl;
+							cout << "Flight#: " << right << setw(41) << flightList[selectedFlight].getFlightNumber() << endl;
+							cout << "Departing: " << right << setw(22) << flightList[selectedFlight].getDepartureLocation()
+							<< "- " << flightList[selectedFlight].getDepartureDate() <<  " @ " << right << setw(4) << 
+							flightList[selectedFlight].getDepartureTime() << endl;
+							cout << "Arriving: " << right << setw(23) << flightList[selectedFlight].getArrivalLocation()
+							<< "- " << flightList[selectedFlight].getArrivalDate() << " @ " << right << setw(4) <<
+							flightList[selectedFlight].getArrivalTime() << endl;
+							cout << "==================================================" << endl;
+							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
+							cout << "==================================================" << endl;
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -615,7 +643,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and add to bookings" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -631,7 +659,21 @@ int main()
 						//pay for flight
 						if (choice == 1)
 						{
-					
+							system("CLS");
+							cout << flush;
+							cout << "\t\tPAY FOR FLIGHT" << endl;
+							cout << "\t\t==============" << endl;
+							cout << "Flight Summary:  " << endl;
+							cout << "Flight#: " << right << setw(41) << flightList[selectedFlight].getFlightNumber() << endl;
+							cout << "Departing: " << right << setw(22) << flightList[selectedFlight].getDepartureLocation()
+							<< "- " << flightList[selectedFlight].getDepartureDate() <<  " @ " << right << setw(4) << 
+							flightList[selectedFlight].getDepartureTime() << endl;
+							cout << "Arriving: " << right << setw(23) << flightList[selectedFlight].getArrivalLocation()
+							<< "- " << flightList[selectedFlight].getArrivalDate() << " @ " << right << setw(4) <<
+							flightList[selectedFlight].getArrivalTime() << endl;
+							cout << "==================================================" << endl;
+							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
+							cout << "==================================================" << endl;
 						}
 						//return to main menu
 						else if (choice == 2)
@@ -695,7 +737,21 @@ int main()
 						//pay for flight
 						if (choice == 1)
 						{
-					
+							system("CLS");
+							cout << flush;
+							cout << "\t\tPAY FOR FLIGHT" << endl;
+							cout << "\t\t==============" << endl;
+							cout << "Flight Summary:  " << endl;
+							cout << "Flight#: " << right << setw(41) << flightList[selectedFlight].getFlightNumber() << endl;
+							cout << "Departing: " << right << setw(22) << flightList[selectedFlight].getDepartureLocation()
+							<< "- " << flightList[selectedFlight].getDepartureDate() <<  " @ " << right << setw(4) << 
+							flightList[selectedFlight].getDepartureTime() << endl;
+							cout << "Arriving: " << right << setw(23) << flightList[selectedFlight].getArrivalLocation()
+							<< "- " << flightList[selectedFlight].getArrivalDate() << " @ " << right << setw(4) <<
+							flightList[selectedFlight].getArrivalTime() << endl;
+							cout << "==================================================" << endl;
+							cout << "Price (tax included): " << right << setw(28) << fixed << setprecision(2) << flightList[selectedFlight].getprice() << endl;
+							cout << "==================================================" << endl;
 						}
 						//return to main menu
 						else if (choice == 2)

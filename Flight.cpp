@@ -520,3 +520,25 @@ double Flight::getprice()
 	return price;
 }
 
+string Flight::getDepartureDate()
+{
+	string date = "";
+	date += to_string(departureMonth);
+	date += "/";
+	date += to_string(departureDay);
+	date += "/";
+	date += to_string(departureYear);
+	return date;
+}
+
+string Flight::getArrivalDate()
+{
+	string date = "";
+	date += to_string(arrivalMonth);
+	date += "/";
+	date += to_string(arrivalDay);
+	date += "/";
+	date += to_string(arrivalYear);
+	return date;
+}
+

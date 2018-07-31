@@ -28,6 +28,9 @@ class Flight
 		void displaySeats();
 		double getprice();
 		void addFlight(Flight);
+		string getDepartureDate();
+		string getArrivalDate();
+		
 	//vars:
 		string flightNumber;
 		string toLocation;
