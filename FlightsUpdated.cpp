@@ -18,7 +18,7 @@ void printHeader()
 //takes in seat# as int in seating array, returns seat# as string version
 //(i.e: input 0 => returns "A1")
 //(i.e: input 71 => returns "D18")
-//(i.e: input 4 => "A2")
+//(i.e: input 4 => "A2"
 string seatIntToStr(int x)
 {
 	string seatstring = "";
@@ -74,11 +74,11 @@ string seatIntToStr(int x)
 }
 
 //takes in seat# as string, returns seat# as int index in seating array
-//(i.e: input "A1" => returns 0...)
-//		B1 => 1
-//		D1 => 3
-//		A2 => 4
-//		D18 => 71
+//(i.e: input "A1" => returns 0)
+//			B1 => 1
+//			D1 => 3
+//			A2 => 4
+//(i.e: unput "D18" => returns 71)
 int seatStrToInt(string x)
 {
 	string rowNumAsString = "";
@@ -215,6 +215,7 @@ int main()
 		'X', 'X', 'X', 'O',
 		'O', 'O', 'O', 'X'
 	};
+
 	
 	// ========= Hardcoded admin accounts ===========
 	Account admin1 = Account("admin1", "admin", "Danny Pham", "N/A", "N/A", "10802 Stanford Ave, Garden Grove, CA 92840", "dpham92@csu.fullerton.edu", "Sept 22, 1992", "N/A", "(949) 631 - 1166", "M");
@@ -392,13 +393,12 @@ int main()
 		//accountList[accountListIter].print();
 
 		string selection = "";
-		while (selection.compare("4") != 0) 
+		while (selection.compare("3") != 0) 
 		{
 			cout << "What would you like to do today?" << endl;
 			cout << "\t1) Search flights" << endl;
-			cout << "\t2) Book flights" << endl;
-			cout << "\t3) Review booked flights" << endl;
-			cout << "\t4) Sign out" << endl;
+			cout << "\t2) Review booked flights" << endl;
+			cout << "\t3) Sign out" << endl;
 			cin >> ws;
 			getline(cin, selection);
 			system("CLS");
@@ -438,8 +438,9 @@ int main()
 						}
 					}
 					cout << endl << endl;
-					cout << "Select flight (Enter flight number): ";
+					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
 					cout << flush;
@@ -447,11 +448,50 @@ int main()
 					{
 						if (flightChoice == flightList[i].getFlightNumber())
 						{
+							selectedFlight = i;
 							flightList[i].displaySeats();
 						}
 					}
-					cout << "\nSelect seat(s): ";
+					cout << "\nSelect open seat (input as LETTER followed by ROW#): ";
 					cin >> seatChoice;
+					while (flightList[selectedFlight].seats[seatStrToInt(seatChoice)] == 'X'){
+						system("CLS");
+						cout << flush;
+						flightList[selectedFlight].displaySeats();
+						cout << "\nINVALID, seat " << seatChoice<< " is taken, try again." << endl;
+						cout << "Select open seat (input as LETTER followed by ROW#): ";
+						cin >> seatChoice;
+					}
+					system("CLS");
+					cout << flush;
+					cout << "Seat, " << seatChoice << ", has been selected." << endl;
+					cout << "Would you like to:" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t2) Return to Main Menu and lose progress" << endl;
+					cin >> choice;
+					//pay for flight
+					while (choice != 1 && choice != 2){
+						system("CLS");
+						cout << flush;
+						cout << "INVALID menu choice. Try again." << endl;
+						cout << "Seat, " << seatChoice << ", has been selected." << endl;
+						cout << "Would you like to:" << endl;
+						cout << "\t1) Pay for flight and add to bookings" << endl;
+						cout << "\t2) Return to Main Menu and lose progress" << endl;
+						cin >> choice;
+					}	
+						//pay for flight
+						if (choice == 1)
+						{
+					
+						}
+						//return to main menu
+						else if (choice == 2)
+						{
+							//do nothing, goes to main menu
+							system("CLS");
+							cout << flush;
+						}				
 				}
 
 				else if (choice == 2) // By departure location
@@ -473,8 +513,9 @@ int main()
 						}
 					}
 					cout << endl << endl;
-					cout << "Select flight (Enter flight number): ";
+					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
 					cout << flush;
@@ -482,11 +523,50 @@ int main()
 					{
 						if (flightChoice == flightList[i].getFlightNumber())
 						{
+							selectedFlight = i;
 							flightList[i].displaySeats();
 						}
 					}
-					cout << "\nSelect seat(s): ";
+					cout << "\nSelect open seat (input as LETTER followed by ROW#): ";
 					cin >> seatChoice;
+					while (flightList[selectedFlight].seats[seatStrToInt(seatChoice)] == 'X'){
+						system("CLS");
+						cout << flush;
+						flightList[selectedFlight].displaySeats();
+						cout << "\nINVALID, seat " << seatChoice<< " is taken, try again." << endl;
+						cout << "Select open seat (input as LETTER followed by ROW#): ";
+						cin >> seatChoice;
+					}
+					system("CLS");
+					cout << flush;
+					cout << "Seat, " << seatChoice << ", has been selected." << endl;
+					cout << "Would you like to:" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t2) Return to Main Menu and lose progress" << endl;
+					cin >> choice;
+					//pay for flight
+					while (choice != 1 && choice != 2){
+						system("CLS");
+						cout << flush;
+						cout << "INVALID menu choice. Try again." << endl;
+						cout << "Seat, " << seatChoice << ", has been selected." << endl;
+						cout << "Would you like to:" << endl;
+						cout << "\t1) Pay for flight and add to bookings" << endl;
+						cout << "\t2) Return to Main Menu and lose progress" << endl;
+						cin >> choice;
+					}	
+						//pay for flight
+						if (choice == 1)
+						{
+					
+						}
+						//return to main menu
+						else if (choice == 2)
+						{
+							//do nothing, goes to main menu
+							system("CLS");
+							cout << flush;
+						}	
 				}
 
 				else if (choice == 3) // By arrival location
@@ -509,8 +589,9 @@ int main()
 						}
 					}
 					cout << endl << endl;
-					cout << "Select flight (Enter flight number): ";
+					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
 					cout << flush;
@@ -518,11 +599,50 @@ int main()
 					{
 						if (flightChoice == flightList[i].getFlightNumber())
 						{
+							selectedFlight = i;
 							flightList[i].displaySeats();
 						}
 					}
-					cout << "\nSelect seat(s): ";
+					cout << "\nSelect open seat (input as LETTER followed by ROW#): ";
 					cin >> seatChoice;
+					while (flightList[selectedFlight].seats[seatStrToInt(seatChoice)] == 'X'){
+						system("CLS");
+						cout << flush;
+						flightList[selectedFlight].displaySeats();
+						cout << "\nINVALID, seat " << seatChoice<< " is taken, try again." << endl;
+						cout << "Select open seat (input as LETTER followed by ROW#): ";
+						cin >> seatChoice;
+					}
+					system("CLS");
+					cout << flush;
+					cout << "Seat, " << seatChoice << ", has been selected." << endl;
+					cout << "Would you like to:" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t2) Return to Main Menu and lose progress" << endl;
+					cin >> choice;
+					//pay for flight
+					while (choice != 1 && choice != 2){
+						system("CLS");
+						cout << flush;
+						cout << "INVALID menu choice. Try again." << endl;
+						cout << "Seat, " << seatChoice << ", has been selected." << endl;
+						cout << "Would you like to:" << endl;
+						cout << "\t1) Pay for flight and add to bookings" << endl;
+						cout << "\t2) Return to Main Menu and lose progress" << endl;
+						cin >> choice;
+					}	
+						//pay for flight
+						if (choice == 1)
+						{
+					
+						}
+						//return to main menu
+						else if (choice == 2)
+						{
+							//do nothing, goes to main menu
+							system("CLS");
+							cout << flush;
+						}	
 				}
 
 				else if (choice == 4) // View all flights
@@ -534,8 +654,9 @@ int main()
 						flightList[i].print();
 					}
 					cout << endl << endl;
-					cout << "Select flight (Enter flight number): ";
+					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
 					cout << flush;
@@ -543,11 +664,50 @@ int main()
 					{
 						if (flightChoice == flightList[i].getFlightNumber())
 						{
+							selectedFlight = i;
 							flightList[i].displaySeats();
 						}
 					}
-					cout << "\nSelect seat(s): ";
+					cout << "\nSelect open seat (input as LETTER followed by ROW#): ";
 					cin >> seatChoice;
+					while (flightList[selectedFlight].seats[seatStrToInt(seatChoice)] == 'X'){
+						system("CLS");
+						cout << flush;
+						flightList[selectedFlight].displaySeats();
+						cout << "\nINVALID, seat " << seatChoice<< " is taken, try again." << endl;
+						cout << "Select open seat (input as LETTER followed by ROW#): ";
+						cin >> seatChoice;
+					}
+					system("CLS");
+					cout << flush;
+					cout << "Seat, " << seatChoice << ", has been selected." << endl;
+					cout << "Would you like to:" << endl;
+					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t2) Return to Main Menu and lose progress" << endl;
+					cin >> choice;
+					//pay for flight
+					while (choice != 1 && choice != 2){
+						system("CLS");
+						cout << flush;
+						cout << "INVALID menu choice. Try again." << endl;
+						cout << "Seat, " << seatChoice << ", has been selected." << endl;
+						cout << "Would you like to:" << endl;
+						cout << "\t1) Pay for flight and add to bookings" << endl;
+						cout << "\t2) Return to Main Menu and lose progress" << endl;
+						cin >> choice;
+					}	
+						//pay for flight
+						if (choice == 1)
+						{
+					
+						}
+						//return to main menu
+						else if (choice == 2)
+						{
+							//do nothing, goes to main menu
+							system("CLS");
+							cout << flush;
+						}	
 				}
 
 				
@@ -568,13 +728,9 @@ int main()
 			}
 			else if (selection.compare("2") == 0) 
 			{
-				cout << "Booking flights" << endl;
+				accountList[accountListIter].reviewBookings();
 			}
 			else if (selection.compare("3") == 0) 
-			{
-				cout << "Reviewing flights" << endl;
-			}
-			else if (selection.compare("4") == 0) 
 			{
 				cout << "Thank you for using Northeast Airlines. Have a great day!" << endl;
 			}

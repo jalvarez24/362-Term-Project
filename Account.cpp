@@ -135,13 +135,23 @@ void Account::addBooking(string _flightNum, int _accNum, int _seat)
 			       
 void Account::reviewBookings() const
 {
-	//Review Bookings Header to align info. 
-	cout << "Booking ID:\t" << "Flight#:\t" << "Seat:\n";
-
-	//Print to screen: all bookings inside of bookingslist vector
-	for (int x = 0; x < bookingslist.size(); x ++)
+	cout << "\t\tREVIEWING FLIGHTS\n";
+	if(bookingslist.empty())
 	{
-		cout << bookingslist[x].bookingID << "\t\t" << bookingslist[x].flightNumber << "\t\t" << 
-		bookingslist[x].assignedSeat << endl;
+		cout << flush;
+		cout << "No bookings were found on account. " << endl;
+		cout << "Returning to main menu." << endl;
+	}
+	else
+	{
+		//Review Bookings Header to align info. 
+		cout << "Booking ID:\t" << "Flight#:\t" << "Seat:\n";
+
+		//Print to screen: all bookings inside of bookingslist vector
+		for (int x = 0; x < bookingslist.size(); x ++)
+		{
+			cout << bookingslist[x].bookingID << "\t\t" << bookingslist[x].flightNumber << "\t\t" << 
+			bookingslist[x].assignedSeat << endl;
+		}
 	}
 }
