@@ -18,41 +18,67 @@ void printHeader()
 //takes in seat# as int in seating array, returns seat# as string version
 //(i.e: input 0 => returns "A1")
 //(i.e: input 71 => returns "D18")
+//(i.e: input 4 => "A2")
 string seatIntToStr(int x)
 {
 	string seatstring = "";
 	int seatnum = x + 1;
-	string seat = "";
 	
-	if(x < 18)
+	if(x == 0 || x == 4 || x == 8 || x == 12 || x == 16 ||  x == 20 ||  x == 24 ||
+	 x == 28 || x == 32 ||  x == 36 ||  x == 40 ||  x == 44 ||  x == 48 ||  x == 52 ||
+	  x == 56 ||  x == 60 ||  x == 64 ||  x == 68 )
 	{
 		seatstring += "A";
+		if(x >= 4)
+			seatnum = (seatnum/4) + 1;
 		seatstring += to_string(seatnum);
 	}
-	else if (x >= 18 && x < 36)
+	else if(x == 1 || x == 5 || x == 9 || x == 13 || x == 17 ||  x == 21 ||  x == 25 ||
+	 x == 29 || x == 33 ||  x == 37 ||  x == 41 ||  x == 45 ||  x == 49 ||  x == 53 ||
+	  x == 57 ||  x == 61 ||  x == 65 ||  x == 69 )
 	{
 		seatstring += "B";
-		seatnum -= 18;
-		seatstring += to_string(seatnum);
+		if(x >= 5)
+		{
+			seatnum = (seatnum/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-1);
 	}
-	else if (x >= 36 && x < 54)
+	else if(x == 2 || x == 6 || x == 10 || x == 14 || x == 18 ||  x == 22 ||  x == 26 ||
+	 x == 30 || x == 34 ||  x == 38 ||  x == 42 ||  x == 46 ||  x == 50 ||  x == 54 ||
+	  x == 58 ||  x == 62 ||  x == 66 ||  x == 70 )
 	{
 		seatstring += "C";
-		seatnum -= 36;
-		seatstring += to_string(seatnum);
+		if(x >= 6)
+		{
+			seatnum = (seatnum/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-2);
 	}
 	else
 	{
 		seatstring += "D";
-		seatnum -= 54;
-		seatstring += to_string(seatnum);
+		if(x >= 7)
+		{
+			seatnum = (x/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-3);
 	}
 	return seatstring;
 }
 
 //takes in seat# as string, returns seat# as int index in seating array
-//(i.e: input "A1" => returns 0)
-//(i.e: unput "D18" => returns 71)
+//(i.e: input "A1" => returns 0...)
+//		B1 => 1
+//		D1 => 3
+//		A2 => 4
+//		D18 => 71
 int seatStrToInt(string x)
 {
 	string rowNumAsString = "";
@@ -61,24 +87,42 @@ int seatStrToInt(string x)
 	{
 		rowNumAsString += x[2];
 	}
+	//rowNumAsString now contains the one or two digit row (1-18),
+	//here converted into int.
 	int rowNumAsInt = stoi(rowNumAsString);
+	//decrement by one to get as value from 0-17
 	rowNumAsInt--;
-	
 	if (x[0] == 'A')
 	{
-		return rowNumAsInt;
+		int arrayseatval = 0;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
 	}
 	else if (x[0] == 'B')
 	{
-		return (rowNumAsInt + 18);
+		int arrayseatval = 1;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
 	}
 	else if (x[0] == 'C')
 	{
-		return (rowNumAsInt + 36);
+		int arrayseatval = 2;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
 	}
 	else
 	{
-		return (rowNumAsInt + 54);
+		int arrayseatval = 3;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
 	}
 }
 
@@ -87,33 +131,89 @@ int main()
 	//# of Rows: 18
 	//# of Seats per Row: 4
 	//Total Seats= 72
-	char seating1[72] =
+	char seating1[72] = 
 	{
-		'X', 'X', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'O', 'O',
-		'X', 'X', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O',
-		'X', 'O', 'O', 'X', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'O',
-		'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'O', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'O', 'X',
+		'X', 'X', 'X', 'X',
+		'O', 'O', 'O', 'O',
+		'X', 'X', 'O', 'X',
+		'X', 'O', 'X', 'X',
+		'X', 'X', 'X', 'X',
+		'X', 'O', 'X', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'X', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'X', 'X',
+		'O', 'X', 'O', 'O',
+		'X', 'X', 'X', 'X',
+		'X', 'X', 'X', 'O',
+		'O', 'O', 'X', 'X'
 	};
 	char seating2[72] =
 	{
-		'O', 'X', 'O', 'X', 'O', 'O', 'O', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'O', 'X',
-		'O', 'X', 'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O', 'O', 'O', 'O',
-		'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'O', 'X', 'O',
-		'X', 'O', 'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'X', 'X', 'X',
+		'O', 'O', 'X', 'X',
+		'O', 'O', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'O', 'O', 'X',
+		'X', 'X', 'X', 'O',
+		'O', 'O', 'O', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'O', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'O', 'O', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'X', 'O', 'X',
+		'X', 'O', 'X', 'O',
+		'O', 'X', 'O', 'X',
+		'X', 'O', 'O', 'O',
+		'X', 'X', 'X', 'X',
+		'X', 'X', 'X', 'O',
+		'O', 'O', 'O', 'X'
 	};
 	char seating3[72] =
-	{
-		'O', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'X', 'O', 'X', 'X', 'O', 'X', 'O', 'O', 'O', 'X',
-		'O', 'X', 'X', 'O', 'X', 'X', 'O', 'X', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'X',
-		'X', 'O', 'O', 'X', 'O', 'O', 'O', 'X', 'X', 'X', 'X', 'O', 'O', 'O', 'X', 'X', 'O', 'O',
-		'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'X', 'O', 'X', 'O', 'X',
+		{
+		'O', 'O', 'X', 'O',
+		'O', 'O', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'O', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'O', 'O', 'O',
+		'X', 'X', 'O', 'O',
+		'X', 'O', 'X', 'O',
+		'O', 'X', 'X', 'X',
+		'O', 'O', 'X', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'X', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'X', 'X',
+		'O', 'X', 'O', 'O',
+		'O', 'X', 'X', 'X',
+		'X', 'X', 'O', 'O',
+		'O', 'O', 'O', 'X'
 	};
 	char seating4[72] =
 	{
-		'X', 'X', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'O', 'O', 'O', 'O',
-		'X', 'X', 'X', 'O', 'X', 'O', 'X', 'X', 'X', 'O', 'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O',
-		'X', 'O', 'O', 'X', 'O', 'O', 'X', 'X', 'X', 'X', 'X', 'X', 'O', 'X', 'X', 'X', 'O', 'O',
-		'X', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'O', 'X', 'X', 'X', 'X', 'X',
+		'X', 'O', 'X', 'O',
+		'O', 'O', 'O', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'O', 'X',
+		'X', 'X', 'X', 'X',
+		'O', 'O', 'O', 'O',
+		'X', 'X', 'O', 'X',
+		'O', 'O', 'X', 'X',
+		'X', 'X', 'X', 'O',
+		'X', 'O', 'X', 'O',
+		'O', 'X', 'O', 'X',
+		'O', 'X', 'X', 'X',
+		'X', 'O', 'X', 'X',
+		'O', 'X', 'X', 'X',
+		'O', 'X', 'O', 'O',
+		'X', 'X', 'X', 'X',
+		'X', 'X', 'X', 'O',
+		'O', 'O', 'O', 'X'
 	};
 	
 	// ========= Hardcoded admin accounts ===========
