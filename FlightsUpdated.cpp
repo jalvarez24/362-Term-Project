@@ -15,33 +15,71 @@ void printHeader()
 	cout << "-------------------------------------------------------------------------------\n";
 }
 
-//takes int seat value and returns in plane format (i.e: B16, D4, etc.)
-string seatconverter(int x)
+//takes in seat# as int in seating array, returns seat# as string version
+//(i.e: input 0 => returns "A1")
+//(i.e: input 71 => returns "D18")
+string seatIntToStr(int x)
 {
-	int xplusone = x + 1;
-	string seatnum = to_string(xplusone);
+	string seatstring = "";
+	int seatnum = x + 1;
 	string seat = "";
+	
 	if(x < 18)
 	{
-		seat += "A";
-		seat += seatnum;
+		seatstring += "A";
+		seatstring += to_string(seatnum);
 	}
 	else if (x >= 18 && x < 36)
 	{
-		seat += "B";
-		seat += seatnum;
+		seatstring += "B";
+		seatnum -= 18;
+		seatstring += to_string(seatnum);
 	}
 	else if (x >= 36 && x < 54)
 	{
-		seat += "C";
-		seat += seatnum;
+		seatstring += "C";
+		seatnum -= 36;
+		seatstring += to_string(seatnum);
 	}
 	else
 	{
-		seat += "D";
-		seat += seatnum;
+		seatstring += "D";
+		seatnum -= 54;
+		seatstring += to_string(seatnum);
 	}
-	return seat;
+	return seatstring;
+}
+
+//takes in seat# as string, returns seat# as int index in seating array
+//(i.e: input "A1" => returns 0)
+//(i.e: unput "D18" => returns 71)
+int seatStrToInt(string x)
+{
+	string rowNumAsString = "";
+	rowNumAsString += x[1];
+	if(x.length() > 2)
+	{
+		rowNumAsString += x[2];
+	}
+	int rowNumAsInt = stoi(rowNumAsString);
+	rowNumAsInt--;
+	
+	if (x[0] == 'A')
+	{
+		return rowNumAsInt;
+	}
+	else if (x[0] == 'B')
+	{
+		return (rowNumAsInt + 18);
+	}
+	else if (x[0] == 'C')
+	{
+		return (rowNumAsInt + 36);
+	}
+	else
+	{
+		return (rowNumAsInt + 54);
+	}
 }
 
 int main()
