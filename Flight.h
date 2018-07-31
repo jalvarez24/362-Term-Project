@@ -28,8 +28,7 @@ class Flight
 		void displaySeats();
 		double getprice();
 		void addFlight(Flight);
-
-	private:
+	//vars:
 		string flightNumber;
 		string toLocation;
 		string fromLocation;
@@ -43,6 +42,7 @@ class Flight
 		int arrivalTime;
 		char seats[72];	
 		double price;
+	private:
 };
 
 #endif
