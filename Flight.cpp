@@ -85,54 +85,6 @@ void Flight::print()
 
 void Flight::displaySeats() 
 {
-	/*cout << "\t\t\tROW#\n\t";
-	cout << "1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18";
-	cout << "\nS     A\t";
-
-	// First 18 seats
-	for (int i = 0; i < 18; i++)
-	{
-		if (seats[i] == 'X')
-		{
-			cout << "[X]  ";
-		}
-		else
-			cout << "[O]  ";
-	}
-
-	cout << "\nE     B\t";
-	for (int i = 18; i < 36; i++) 
-	{
-		if (seats[i] == 'X')
-		{
-			cout << "[X]  ";
-		}
-		else
-			cout << "[O]  ";
-	}
-
-	cout << "\nA     C\t";
-	for (int i = 36; i < 54; i++)
-	{
-		if (seats[i] == 'X')
-		{
-			cout << "[X]  ";
-		}
-		else
-			cout << "[O]  ";
-	}
-
-	cout << "\nT     D\t";
-	for (int i = 54; i < 72; i++) 
-	{
-		if (seats[i] == 'X')
-		{
-			cout << "[X]  ";
-		}
-		else
-			cout << "[O]  ";
-	}*/
-
 	cout << "\t\t  RESERVE SEAT(S)" << endl << endl;
 	cout << "\t\t    A B\t  C D" << endl;
 	cout << "\t\t1   ";
@@ -541,4 +493,3 @@ string Flight::getArrivalDate()
 	date += to_string(arrivalYear);
 	return date;
 }
-
