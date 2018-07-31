@@ -466,7 +466,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -554,7 +554,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -643,7 +643,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -721,7 +721,7 @@ int main()
 					cout << flush;
 					cout << "Seat, " << seatChoice << ", has been selected." << endl;
 					cout << "Would you like to:" << endl;
-					cout << "\t1) Pay for flight and to bookings" << endl;
+					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
 					while (choice != 1 && choice != 2){
@@ -761,22 +761,6 @@ int main()
 							cout << flush;
 						}	
 				}
-
-				
-				/*for (int i = 0; i < flightList.size(); i++)
-				{
-					flightList[i].print();
-				}*/
-				/*cout << "Select a flight: ";
-				cin >> selection;
-
-				for (int i = 0; i < flightList.size(); i++)
-				{
-					if (flightList[i].getFlightNumber() == selection)
-					{
-						flightList[i].print();
-					}
-				}*/
 			}
 			else if (selection.compare("2") == 0) 
 			{
@@ -792,16 +776,6 @@ int main()
 			}
 		}
 	}
-	
-	// ===============================================
-	//Flight testing
-	//-----------------------------------------
-	//printHeader();
-	//flight1.print();
-	//flight1.displaySeats();
-	//-----------------------------------------
-	
-	
 	cout << endl;
 	system("pause");
 	return 0;
