@@ -469,7 +469,6 @@ int main()
 					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
-					//pay for flight
 					while (choice != 1 && choice != 2){
 						system("CLS");
 						cout << flush;
@@ -544,7 +543,6 @@ int main()
 					cout << "\t1) Pay for flight and to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
-					//pay for flight
 					while (choice != 1 && choice != 2){
 						system("CLS");
 						cout << flush;
@@ -620,7 +618,6 @@ int main()
 					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
-					//pay for flight
 					while (choice != 1 && choice != 2){
 						system("CLS");
 						cout << flush;
@@ -685,7 +682,6 @@ int main()
 					cout << "\t1) Pay for flight and to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
-					//pay for flight
 					while (choice != 1 && choice != 2){
 						system("CLS");
 						cout << flush;
