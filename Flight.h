@@ -2,7 +2,7 @@
 // Course: CPSC 362
 // Filename: Flight.h
 // Purpose: Declares Flight class
-// Last updated: 7/30/18
+// Last updated: 7/31/18
 
 #ifndef FLIGHT_H
 #define FLIGHT_H
@@ -13,12 +13,12 @@ using namespace std;
 
 class Flight
 {
-
 	public:
 		Flight();
 		~Flight();
 		Flight(string, string, string, int, int, int, int, int, int, int, int, char[], double);
 		
+		// Functions
 		string getFlightNumber();
 		int getDepartureTime();
 		int getArrivalTime();
@@ -30,8 +30,9 @@ class Flight
 		void addFlight(Flight);
 		string getDepartureDate();
 		string getArrivalDate();
+		int getAvailableSeats();
 		
-	//vars:
+		// Variables
 		string flightNumber;
 		string toLocation;
 		string fromLocation;

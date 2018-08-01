@@ -1,7 +1,8 @@
-/*Name: Jayro Alvarez
-Booking class holds:
--flight number, account number, assigned seat, price paid.
-*/
+// Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
+// Course: CPSC 362
+// Filename: Booking.cpp
+// Last updated: 7/31/2018
+
 #include "Booking.h"
 
 int Booking::id = 1;

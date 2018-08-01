@@ -1,7 +1,7 @@
 // Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
 // Course: CPSC 362
 // Filename: Flight.cpp
-// Last updated: 7/30/18
+// Last updated: 7/31/18
 
 #include "Flight.h"
 
@@ -80,7 +80,8 @@ void Flight::print()
 	{
 		cout << arrivalTime << "\t";
 	}
-	cout << endl;
+
+	cout << getAvailableSeats() << endl;
 }
 
 void Flight::displaySeats() 
@@ -492,4 +493,18 @@ string Flight::getArrivalDate()
 	date += "/";
 	date += to_string(arrivalYear);
 	return date;
+}
+
+int Flight::getAvailableSeats()
+{
+	int availableSeats = 0;
+	for (int i = 0; i < 72; i++)
+	{
+		if (seats[i] == 'O')
+		{
+			availableSeats++;
+		}
+	}
+
+	return availableSeats;
 }

@@ -1,7 +1,9 @@
-/*Name: Jayro Alvarez
-Booking class holds:
--flight number, account number, assigned seat, price paid.
-*/
+// Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
+// Course: CPSC 362
+// Filename: Booking.h
+// Purpose: Holds flight number, account number, assigned seat, price paid
+// Last updated: 7/31/2018
+
 #ifndef BOOKING_H
 #define BOOKING_H
 
@@ -11,21 +13,25 @@ using namespace std;
 
 class Booking
 {
-public:
-	Booking();
-	~Booking();
-	Booking(string, int, int);
-	int getBookingID();
-	string getFlightNumber();
-	int getAccountNumber();
-	int getAssignedSeat();
-	int bookingID;
-	string flightNumber;
-	int accountNumber;
-	int assignedSeat;
+	public:
+		Booking();
+		~Booking();
+		Booking(string, int, int);
+		
+		// Getters
+		int getBookingID();
+		string getFlightNumber();
+		int getAccountNumber();
+		int getAssignedSeat();
 
-private:
-	static int id;
+		// Variables
+		int bookingID;
+		string flightNumber;
+		int accountNumber;
+		int assignedSeat;
+
+	private:
+		static int id;
 };
 
 #endif

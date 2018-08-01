@@ -1,6 +1,8 @@
-/*  Name: Danny Pham
-	Course: CPSC 362
-	Purpose: Holds user Account information*/
+// Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
+// Course: CPSC 362
+// Filename: Account.h
+// Purpose: Holds user account information
+// Last updated: 7/31/2018
 
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
@@ -13,58 +15,54 @@ using namespace std;
 
 class Account
 {
-public:
-	Account();
-	Account(string, string, string, string, string, string, string, string, string, string, string);
+	public:
+		Account();
+		Account(string, string, string, string, string, string, string, string, string, string, string);
+		~Account();
 
-	~Account();
-
-	void setAccountHolderName(string);
-	void setPassword(string);
-	void setCreditCardNum(string);
-	void setCreditCardExpiration(string);
-	void setBillingAddress(string);
-	void setEmail(string);
-	void setDateOfBirth(string);
-	void setHomePhone(string);
-	void setCellPhone(string);
+		// Setters
+		void setAccountHolderName(string);
+		void setPassword(string);
+		void setCreditCardNum(string);
+		void setCreditCardExpiration(string);
+		void setBillingAddress(string);
+		void setEmail(string);
+		void setDateOfBirth(string);
+		void setHomePhone(string);
+		void setCellPhone(string);
 	
-	int getID() const;
-	string getName() const;
-	string getUsername() const;
-	string getCreditCardNum();
+		// Getters
+		int getID() const;
+		string getName() const;
+		string getUsername() const;
+		string getCreditCardNum();
 
-	bool validatePassword(string) const;
+		// Functions
+		bool validatePassword(string) const;
+		void print() const;
+		void addBooking(string, int, int);	
+		void reviewBookings();
+		bool checkCC();
+		string seatIntToStr(int);
+		bool isBookingsEmpty();
 
-	void print() const;
+	private:
+		int accountID;
+		string userName;
+		string password;
+		string accountHolderName;
+		string creditCardNum;
+		string creditCardExpiration;
+		string billingAddress;
+		string email;
+		string dateOfBirth;
+		string homePhone;
+		string cellPhone;
+		string sex;
+
+		static int id;
 	
-	void addBooking(string, int, int);	
-
-	void reviewBookings();
-
-	bool checkCC();
-
-	string seatIntToStr(int);
-
-	bool isBookingsEmpty();
-
-private:
-	int accountID;
-	string userName;
-	string password;
-	string accountHolderName;
-	string creditCardNum;
-	string creditCardExpiration;
-	string billingAddress;
-	string email;
-	string dateOfBirth;
-	string homePhone;
-	string cellPhone;
-	string sex;
-
-	static int id;
-	
-	vector<Booking> bookingslist;
+		vector<Booking> bookingslist;
 };
 
 #endif

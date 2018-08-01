@@ -1,3 +1,9 @@
+// Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
+// Course: CPSC 362
+// Filename: FlightsUpdated.cpp
+// Purpose: main
+// Last updated: 7/31/2018
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -217,7 +223,7 @@ int main()
 	};
 
 	
-	// ========= Hardcoded admin accounts ===========
+	// ================================================= Hardcoded admin accounts =========================================================
 	Account admin1 = Account("admin1", "admin", "Danny Pham", "N/A", "N/A", "10802 Stanford Ave, Garden Grove, CA 92840", "dpham92@csu.fullerton.edu", "Sept 22, 1992", "N/A", "(949) 631 - 1166", "M");
 	Account admin2 = Account("admin2", "admin", "Brian Trinh", "N/A", "N/A", "13221 Newhope St, Garden Grove, CA, 92843", "briantrinh@csu.fullerton.edu", "May 18, 1994", "N/A", "(714) 723 - 1637", "M");
 	Account admin3 = Account("admin3", "admin", "Royce Nguyen", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "M");
@@ -228,10 +234,9 @@ int main()
 	accountList.push_back(admin2);
 	accountList.push_back(admin3);
 	accountList.push_back(admin4);
-	// ===============================================
+	// ===========================================================================================================================================
 	
-	//Creation of Unique Flights
-	//-----------------------------------------
+	//=============================== Creation of Unique Flights =========================================
 	Flight flight1 = Flight("NE123", "CLT", "BOS", 8, 1, 2018, 800, 8, 1, 2018, 1015, seating1, 449.99);
 	Flight flight2 = Flight("NE435", "BDL", "JFK", 8, 1, 2018, 1200, 8, 1, 2018, 1500, seating2, 365.99);
 	Flight flight3 = Flight("NE234", "LGA", "PHL", 8, 1, 2018, 1130, 8, 1, 2018, 1300, seating3, 299.99);
@@ -254,9 +259,9 @@ int main()
 	flightList.push_back(flight8);
 	flightList.push_back(flight9);
 	flightList.push_back(flight10);
-	//-----------------------------------------
+	//---------------------------------------------------------------------------------------------------------------
 	
-	// ============== Login Segment ==================
+	// ================================ Login Segment =================================
 	// Danny Pham 07/28/18
 	cout << "Welcome to Northeast Airlines!\n";
 	
@@ -266,7 +271,7 @@ int main()
 	int accountListIter = 0;
 	while ((username.compare("-1") != 0) && !userFound) {
 
-		// ==== Login select ====
+		// ============== Login select =================
 		string selection = "";
 		cout << "Please select an option" << endl;
 		cout << "\t1) Login" << endl;
@@ -274,7 +279,7 @@ int main()
 		cin >> selection;
 		system("CLS");
 		
-		// ==== Login ====
+		// ========================= Login ===========================
 		if (selection.compare("1") == 0) {
 			cout << "\t\t\tUSER LOGIN" << endl;
 			cout << "Please enter your username (-1 to exit): ";
@@ -333,7 +338,6 @@ int main()
 			cout << "Password: ";
 			cin >> _password;
 			
-
 			cout << "Full Name: ";
 			cin >> ws;
 			getline(cin, _accountHolderName);
@@ -413,13 +417,15 @@ int main()
 				cout << "\t2) Departure location" << endl;
 				cout << "\t3) Arrival location" << endl;
 				cout << "\t4) View all flights" << endl;
-
 				cin >> choice;
 				system("CLS");
 				cout << flush;
+				
 				string searchString;
 				string flightChoice;
 				string seatChoice;
+				int flightsFound = 0;
+				int counter = 0;
 				if (choice == 1) // By flight #
 				{
 					cout << "\t\t\tSEARCH BY FLIGHT NUMBER" << endl;
@@ -427,7 +433,7 @@ int main()
 					cin >> searchString;
 					system("CLS");
 					cout << flush;
-
+					
 					cout << "\t\t\t\tSEARCH RESULTS" << endl << endl;
 					printHeader();
 					for (int i = 0; i < flightList.size(); i++)
@@ -435,8 +441,10 @@ int main()
 						if (searchString == flightList[i].getFlightNumber())
 						{
 							flightList[i].print();
+							flightsFound++;
 						}
 					}
+					
 					cout << endl << endl;
 					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
@@ -469,7 +477,9 @@ int main()
 					cout << "\t1) Pay for flight and add to bookings" << endl;
 					cout << "\t2) Return to Main Menu and lose progress" << endl;
 					cin >> choice;
-					while (choice != 1 && choice != 2){
+					
+					while (choice != 1 && choice != 2)
+					{
 						system("CLS");
 						cout << flush;
 						cout << "INVALID menu choice. Try again." << endl;

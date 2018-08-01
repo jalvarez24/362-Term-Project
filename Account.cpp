@@ -1,6 +1,8 @@
-/*  Name: Danny Pham
-	Course: CPSC 362
-	Purpose: Holds user Account information*/
+// Authors: Royce Nguyen, Jayro Alvarez, Brian Trinh, Danny Pham
+// Course: CPSC 362
+// Filename: Account.cpp
+// Purpose: Holds user Account information
+// Last updated: 7/31/2018
 
 #include "Account.h"
 
