@@ -128,7 +128,8 @@ void Account::print() const
 	cout << "DOB: " << dateOfBirth << endl;
 	cout << "Sex: " << sex << endl;
 	cout << "Username: " << userName << endl;
-	cout << "PW: " << password << endl;
+	//cout << "PW: " << password << endl;
+	cout << "PW: ****" << endl;
 }
 
 void Account::addBooking(string _flightNum, int _accNum, int _seat)
