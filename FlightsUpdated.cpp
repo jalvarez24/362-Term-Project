@@ -1025,16 +1025,17 @@ int main()
 				}
 				else
 				{
+					string flightNum;
 					string reviewMenuSelect;
 					accountList[accountListIter].reviewBookings();
 					cout << "Enter flight you want to modify, book, or print flight info for: " << endl;
 					cout << "(Enter 0 to go back to main menu)" << endl;
 					cout << "Flight #: ";
-					cin >> reviewMenuSelect;
+					cin >> flightNum;
 					if (reviewMenuSelect != "0")
 					{
 						system("CLS");
-						cout << "\tFlight Chosen: " << reviewMenuSelect << endl;
+						cout << "\tFlight Chosen: " << flightNum << endl;
 						cout << "Choose option below: " << endl;
 						cout << "\t1. Modify Flight " << endl;
 						cout << "\t2. Cancel Booking " << endl;
