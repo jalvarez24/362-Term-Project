@@ -45,7 +45,8 @@ class Account
 		bool checkCC();
 		string seatIntToStr(int);
 		bool isBookingsEmpty();
-
+	
+		vector<Booking> bookingslist;
 	private:
 		int accountID;
 		string userName;
@@ -61,8 +62,6 @@ class Account
 		string sex;
 
 		static int id;
-	
-		vector<Booking> bookingslist;
 };
 
 #endif
