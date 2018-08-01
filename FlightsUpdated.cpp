@@ -285,7 +285,7 @@ int main()
 			cout << "Please enter your username (-1 to exit): ";
 			cin >> username;
 
-			
+			accountListIter = 0;
 			while ((accountListIter < accountList.size()) && !userFound) {
 				if (accountList[accountListIter].getUsername() == username) {
 					userFound = true;
