@@ -42,6 +42,9 @@ class Account
 		void print() const;
 		void addBooking(string, int, int);	
 		void reviewBookings();
+		void printBooking(string flightNum, vector<Flight>);
+		void modifyBooking(string flightNum, vector<Flight>&);
+		void cancelBooking(string flightNum, vector<Flight>&);
 		bool checkCC();
 		string seatIntToStr(int);
 		bool isBookingsEmpty();
