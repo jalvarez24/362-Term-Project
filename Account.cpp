@@ -4,6 +4,7 @@
 // Purpose: Holds user Account information
 // Last updated: 7/31/2018
 
+
 #include "Account.h"
 
 int Account::id = 1;
