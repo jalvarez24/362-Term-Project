@@ -1041,17 +1041,76 @@ int main()
 						cout << "\t3. Print Flight Information " << endl;
 						cout << "\t4. Return to main menu " << endl;
 						cin >> reviewMenuSelect;
+						
+						// ================================ MODIFY BOOKING =====================================
+
 						if (reviewMenuSelect == "1")
 						{
-							//insert modify function
+							{
+								int bookingIndex = 0;
+								int bookingSeat = 0;
+
+								string seatChoice = "";
+
+								// Match user input to reservation from booking vector
+								for (int i = 0; i < accountList[accountListIter].bookingslist.size(); i++)
+								{
+									if (flightNum == accountList[accountListIter].bookingslist[i].getFlightNumber())
+									{
+										bookingSeat = accountList[accountListIter].bookingslist[i].getAssignedSeat();
+										bookingIndex = i;
+									}
+								}
+
+								for (int j = 0; j < flightList.size(); j++)
+								{
+									if (flightNum == flightList[j].getFlightNumber())
+									{
+										system("CLS");
+
+										cout << "Current Seating Chart:\n";
+										flightList[j].displaySeats();
+
+										cout << "\nSelect an open seat you would like to switch to (input as LETTER followed by ROW#): ";
+										cin >> seatChoice;
+
+										// Loop to ensure user changes to an empty seat
+										while (flightList[j].seats[seatStrToInt(seatChoice)] == 'X')
+										{
+											system("CLS");
+											cout << flush;
+											flightList[j].displaySeats();
+											cout << "\nINVALID, seat " << seatChoice << " is taken, try again." << endl;
+											cout << "Select open seat (input as LETTER followed by ROW#): ";
+											cin >> seatChoice;
+										}
+
+										// Remove previous booking, update seating chart, and create new booking with new seat.
+										accountList[accountListIter].bookingslist.erase(accountList[accountListIter].bookingslist.begin() + bookingIndex);
+
+										flightList[j].seats[bookingSeat] = '_';
+										flightList[j].seats[seatStrToInt(seatChoice)] = 'X';
+
+										accountList[accountListIter].addBooking(flightList[j].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
+										system("CLS");
+										cout << "Booking has been updated.\n\n";
+									}
+								}
+							}
 						}
+
+						// ================================ CANCEL BOOKING =====================================
+
 						else if (reviewMenuSelect == "2")
 						{
-							//insert cancel booking function
+							accountList[accountListIter].cancelBooking(flightNum, flightList);
 						}
+
+						// ================================ PRINT BOOKING ======================================
+
 						else if (reviewMenuSelect == "3")
 						{
-							//insert cancel booking function
+							accountList[accountListIter].printBooking(flightNum, flightList);
 						}
 						else if (reviewMenuSelect == "4")
 						{
