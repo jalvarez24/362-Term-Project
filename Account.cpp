@@ -150,6 +150,69 @@ void Account::reviewBookings()
 		cout << "==================================================" << endl;
 }
 
+void Account::printBooking(string flightNum, vector<Flight> flightList)
+{
+	int index = 0;
+
+	// Match user input to reservation from booking vector
+	for (int i = 0; i < bookingslist.size(); i++)
+	{
+		if (flightNum == bookingslist[i].getFlightNumber())
+		{
+			index = i;
+		}
+	}
+
+	/*
+	If booking vector contained flight, match to flight vector
+	Print ticket using information contained in flight vector index
+	*/
+	for (int j = 0; j < flightList.size(); j++)
+	{
+		if (flightNum == flightList[j].getFlightNumber())
+		{
+			system("CLS");
+			cout << "Here is your ticket.\n";
+			cout << "====================================================================\n"
+				<< "\tNortheast Airlines Ticket" << "\tFlight Number: " << flightList[j].getFlightNumber() << "\n\n"
+				<< "\tPassenger: " << accountHolderName << "\t\tAccount ID: " << accountID << "\n\n"
+				<< "\tFrom: " << flightList[j].getDepartureLocation() << "\tSeat: " << seatIntToStr(bookingslist[index].assignedSeat) << "\tDeparture Time: " << flightList[j].getDepartureTime() << "\n"
+				<< "\tTo: " << flightList[j].getArrivalLocation() << "\t\t\t\tArrival Time: " << flightList[j].getArrivalTime() << "\n"
+				<< "====================================================================\n\n";
+		}
+	}
+}
+
+void Account::cancelBooking(string flightNum, vector<Flight> & flightList)
+{
+	int index = 0;
+	int bookingSeat = 0;
+
+	// Match user input to reservation from booking vector
+	for (int i = 0; i < bookingslist.size(); i++)
+	{
+		if (flightNum == bookingslist[i].getFlightNumber())
+		{
+			bookingSeat = bookingslist[i].getAssignedSeat();
+			index = i;
+		}
+	}
+
+	for (int j = 0; j < flightList.size(); j++)
+	{
+		if (flightNum == flightList[j].getFlightNumber())
+		{
+			bookingslist.erase(bookingslist.begin() + index);
+
+			flightList[j].seats[bookingSeat] = '_';
+
+			system("CLS");
+			cout << "Your booking has been cancelled.\n"
+				<< "Refund amount: " << flightList[j].getprice() << "\n\n";
+		}
+	}
+}
+
 bool Account::checkCC()
 { 
 	if (creditCardNum != "N/A" && creditCardExpiration != "N/A")
