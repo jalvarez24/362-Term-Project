@@ -382,6 +382,9 @@ int main()
 			userValidated = true;
 			username = _userName;	
 
+			system("CLS");
+			cout << flush;
+
 		}
 		else {
 			cout << "Invalid input. Please try again." << endl;
