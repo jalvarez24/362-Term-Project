@@ -306,7 +306,6 @@ int main()
 				cin >> pw;
 				if (accountList[accountListIter].validatePassword(pw)) {
 					userValidated = true;
-
 					system("CLS");
 					cout << flush;
 				}
@@ -315,7 +314,6 @@ int main()
 					cout << flush;
 					cout << "Incorrect Password!" << endl;
 				}
-
 			}
 		}
 
@@ -387,7 +385,7 @@ int main()
 			userFound = true;
 			userValidated = true;
 			username = _userName;	
-
+			
 			system("CLS");
 			cout << flush;
 
@@ -411,7 +409,7 @@ int main()
 			cout << "What would you like to do today?" << endl;
 			cout << "\t1) Search flights" << endl;
 			cout << "\t2) Review booked flights" << endl;
-			cout << "\t3) View account information" << endl;
+			cout << "\t3) View Account Information" << endl;
 			cout << "\t4) Sign out" << endl;
 			cin >> ws;
 			getline(cin, selection);
@@ -427,6 +425,7 @@ int main()
 				cout << "\t2) Departure location" << endl;
 				cout << "\t3) Arrival location" << endl;
 				cout << "\t4) View all flights" << endl;
+				cout << "\t5) Return to main menu" << endl;
 				cin >> choice;
 				system("CLS");
 				cout << flush;
@@ -441,9 +440,32 @@ int main()
 					cout << "\t\t\tSEARCH BY FLIGHT NUMBER" << endl;
 					cout << "Enter flight number: ";
 					cin >> searchString;
+
+					bool searchFound = false;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (searchString == flightList[i].getFlightNumber())
+						{
+							searchFound = true;
+						}
+					}
+					while(searchFound == false)
+					{
+						system("CLS");
+						cout << "\t\t\tSEARCH BY FLIGHT NUMBER" << endl;
+						cout << "Invalid entry. Please enter valid flight number: ";
+						cin >> searchString;
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (searchString == flightList[i].getFlightNumber())
+							{
+								searchFound = true;
+							}
+						}
+						
+					}
 					system("CLS");
 					cout << flush;
-					
 					cout << "\t\t\t\tSEARCH RESULTS" << endl << endl;
 					printHeader();
 					for (int i = 0; i < flightList.size(); i++)
@@ -458,6 +480,39 @@ int main()
 					cout << endl << endl;
 					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					bool flightChoiceGood = false;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightChoiceGood = true;
+						}
+					}
+					while(flightChoiceGood == false)
+					{
+						system("CLS");
+						cout << "\tNOTICE: INVALID FLIGHT SELECTED." << endl;
+						cout << "Please select valid flight from list below." << endl << endl;
+						printHeader();
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (searchString == flightList[i].getFlightNumber())
+							{
+								flightList[i].print();
+								flightsFound++;
+							}
+						}
+						cout << endl << endl;
+						cout << "Select flight to view available seats (Enter flight number): ";
+						cin >> flightChoice;
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (flightChoice == flightList[i].getFlightNumber())
+							{
+								flightChoiceGood = true;
+							}
+						}
+					}
 					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
@@ -609,6 +664,39 @@ int main()
 					cout << endl << endl;
 					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					bool flightChoiceGood = false;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightChoiceGood = true;
+						}
+					}
+					while(flightChoiceGood == false)
+					{
+						system("CLS");
+						cout << "\tNOTICE: INVALID FLIGHT SELECTED." << endl;
+						cout << "Please select valid flight from list below." << endl << endl;
+						printHeader();
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (searchString == flightList[i].getDepartureLocation())
+							{
+								flightList[i].print();
+								flightsFound++;
+							}
+						}
+						cout << endl << endl;
+						cout << "Select flight to view available seats (Enter flight number): ";
+						cin >> flightChoice;
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (flightChoice == flightList[i].getFlightNumber())
+							{
+								flightChoiceGood = true;
+							}
+						}
+					}
 					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
@@ -736,6 +824,7 @@ int main()
 							cout << flush;
 						}	
 				}
+
 				else if (choice == 3) // By arrival location
 				{
 					string arrLoc;
@@ -758,6 +847,39 @@ int main()
 					cout << endl << endl;
 					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					bool flightChoiceGood = false;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightChoiceGood = true;
+						}
+					}
+					while(flightChoiceGood == false)
+					{
+						system("CLS");
+						cout << "\tNOTICE: INVALID FLIGHT SELECTED." << endl;
+						cout << "Please select valid flight from list below." << endl << endl;
+						printHeader();
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (searchString == flightList[i].getArrivalLocation())
+							{
+								flightList[i].print();
+								flightsFound++;
+							}
+						}
+						cout << endl << endl;
+						cout << "Select flight to view available seats (Enter flight number): ";
+						cin >> flightChoice;
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (flightChoice == flightList[i].getFlightNumber())
+							{
+								flightChoiceGood = true;
+							}
+						}
+					}
 					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
@@ -897,6 +1019,35 @@ int main()
 					cout << endl << endl;
 					cout << "Select flight to view available seats (Enter flight number): ";
 					cin >> flightChoice;
+					bool flightChoiceGood = false;
+					for (int i = 0; i < flightList.size(); i++)
+					{
+						if (flightChoice == flightList[i].getFlightNumber())
+						{
+							flightChoiceGood = true;
+						}
+					}
+					while(flightChoiceGood == false)
+					{
+						system("CLS");
+						cout << "\tNOTICE: INVALID FLIGHT SELECTED." << endl;
+						cout << "Please select valid flight from list below." << endl << endl;
+						printHeader();
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							flightList[i].print();
+						}
+						cout << endl << endl;
+						cout << "Select flight to view available seats (Enter flight number): ";
+						cin >> flightChoice;
+						for (int i = 0; i < flightList.size(); i++)
+						{
+							if (flightChoice == flightList[i].getFlightNumber())
+							{
+								flightChoiceGood = true;
+							}
+						}
+					}
 					int selectedFlight;	//assigned flight, initialized in loop below.
 
 					system("CLS");
@@ -1023,6 +1174,11 @@ int main()
 							system("CLS");
 							cout << flush;
 						}	
+				}
+				else if (choice == 5)
+				{
+					//do nothing, goes to main menu
+					//"system("CLS")" encountered below...
 				}
 			}
 			else if (selection.compare("2") == 0)
