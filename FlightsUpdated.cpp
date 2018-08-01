@@ -296,6 +296,8 @@ int main()
 			}
 
 			if (!userFound) {
+				system("CLS");
+				cout << flush;
 				cout << "Username not found. Try again.\n";
 			}
 			else {
@@ -304,13 +306,17 @@ int main()
 				cin >> pw;
 				if (accountList[accountListIter].validatePassword(pw)) {
 					userValidated = true;
+
+					system("CLS");
+					cout << flush;
 				}
 				else {
+					system("CLS");
+					cout << flush;
 					cout << "Incorrect Password!" << endl;
 				}
+
 			}
-			system("CLS");
-			cout << flush;
 		}
 
 		// ==== Sign up ====
@@ -400,12 +406,13 @@ int main()
 		//accountList[accountListIter].print();
 
 		string selection = "";
-		while (selection.compare("3") != 0) 
+		while (selection.compare("4") != 0) 
 		{
 			cout << "What would you like to do today?" << endl;
 			cout << "\t1) Search flights" << endl;
 			cout << "\t2) Review booked flights" << endl;
-			cout << "\t3) Sign out" << endl;
+			cout << "\t3) View account information" << endl;
+			cout << "\t4) Sign out" << endl;
 			cin >> ws;
 			getline(cin, selection);
 			system("CLS");
@@ -729,7 +736,6 @@ int main()
 							cout << flush;
 						}	
 				}
-
 				else if (choice == 3) // By arrival location
 				{
 					string arrLoc;
@@ -1132,7 +1138,13 @@ int main()
 
 				}
 			}
-			else if (selection.compare("3") == 0) 
+			else if (selection.compare("3") == 0) // Review account information
+			{
+				accountList[accountListIter].print();
+				system("pause");
+				system("CLS");
+			}
+			else if (selection.compare("4") == 0) 
 			{
 				cout << "Thank you for using Northeast Airlines. Have a great day!" << endl;
 			}
