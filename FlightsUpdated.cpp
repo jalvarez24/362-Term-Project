@@ -1209,7 +1209,16 @@ int main()
 						cin >> reviewMenuSelect;
 						
 						// ================================ MODIFY BOOKING =====================================
-
+						
+						/*
+						a) Module Name: Modify Booking
+						b) Date: July 31, 2018
+						c) Programmer Name: Brian Trinh
+						d) Description: Allows the customer to modify their booking.
+						e) Important Data Structures: Vectors
+						f) Choice of Algorithm: Brute Force (Searching through vectors)
+						*/
+						
 						if (reviewMenuSelect == "1")
 						{
 							{
