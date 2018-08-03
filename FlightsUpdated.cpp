@@ -155,6 +155,8 @@ int main()
 	
 	// === Login Segment ===
 	// Danny Pham 07/28/18
+	// Module prompts the user to login or sign up
+	// int accountListIter		<- Holds index to signed in account
 	cout << "Welcome to Northeast Airlines!\n";
 	
 	string username = "";
@@ -172,6 +174,7 @@ int main()
 		system("CLS");
 		
 		// ========================= Login ===========================
+		// User signs in with Username and Password
 		if (selection.compare("1") == 0) {
 			cout << "\t\t\tUSER LOGIN" << endl;
 			cout << "Please enter your username (-1 to exit): ";
@@ -210,6 +213,8 @@ int main()
 		}
 
 		// ==== Sign up ====
+		// User inputs relevant fields
+		// Data stored into the accounts vector
 		else if (selection.compare("2") == 0) {
 			cout << "\t\t\tUSER SIGN UP" << endl;
 			string _userName;
@@ -286,9 +291,12 @@ int main()
 			cout << "Invalid input. Please try again." << endl;
 		}
 	}
+
 	if (username.compare("-1") == 0) {
 		cout << "Exiting Northeast Airlines..." << endl;
 	}
+
+	// User is considered signed in if username and password are valid
 	if (userFound && userValidated) {
 		
 		cout << "\t\tWELCOME" << endl;

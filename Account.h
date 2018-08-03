@@ -4,6 +4,12 @@
 // Purpose: Holds user account information
 // Last updated: 7/31/2018
 
+/**
+	<EC>Account
+	Account entity class to hold account information
+	vector<Booking> bookingslist	<- Holds all bookings related to the account
+	static int id					<- Static variable used in account creation to generate a unique ID
+*/
 #ifndef ACCOUNT_H
 #define ACCOUNT_H
 
