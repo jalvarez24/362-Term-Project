@@ -136,7 +136,7 @@ void Account::addBooking(string _flightNum, int _accNum, int _seat)
 {
 	bookingslist.push_back(Booking(_flightNum, _accNum, _seat));
 }
-			       
+
 void Account::reviewBookings() 
 {
 	cout << "\t\tREVIEWING FLIGHTS\n";
@@ -151,6 +151,15 @@ void Account::reviewBookings()
 		}
 		cout << "==================================================" << endl;
 }
+
+/*
+a) Module Name: Print Booking
+b) Date: July 31, 2018
+c) Programmer Name: Brian Trinh
+d) Description: Allows the customer to print their booking.
+e) Important Data Structures: Vectors
+f) Choice of Algorithm: Brute Force (Searching through vectors)
+*/
 
 void Account::printBooking(string flightNum, vector<Flight> flightList)
 {
@@ -184,6 +193,15 @@ void Account::printBooking(string flightNum, vector<Flight> flightList)
 		}
 	}
 }
+
+/*
+a) Module Name: Cancel Booking
+b) Date: July 31, 2018
+c) Programmer Name: Brian Trinh
+d) Description: Allows the customer to cancel their booking.
+e) Important Data Structures: Vectors
+f) Choice of Algorithm: Brute Force (Searching through vectors)
+*/
 
 void Account::cancelBooking(string flightNum, vector<Flight> & flightList)
 {
