@@ -14,126 +14,20 @@
 
 using namespace std;
 
+//=== FUNCTION PROTOTYPES ===
+
 //print header for flights list
-void printHeader()
-{
-	cout << "FLIGHT NUMBER\tTO\tFROM\tDEPARTURE DATE\tARRIVAL DATE\tAVAILABLE SEATS\n";
-	cout << "-------------------------------------------------------------------------------\n";
-}
+void printHeader();
 
 //takes in seat# as int in seating array, returns seat# as string version
-//(i.e: input 0 => returns "A1")
-//(i.e: input 71 => returns "D18")
-//(i.e: input 4 => "A2"
-string seatIntToStr(int x)
-{
-	string seatstring = "";
-	int seatnum = x + 1;
-	
-	if(x == 0 || x == 4 || x == 8 || x == 12 || x == 16 ||  x == 20 ||  x == 24 ||
-	 x == 28 || x == 32 ||  x == 36 ||  x == 40 ||  x == 44 ||  x == 48 ||  x == 52 ||
-	  x == 56 ||  x == 60 ||  x == 64 ||  x == 68 )
-	{
-		seatstring += "A";
-		if(x >= 4)
-			seatnum = (seatnum/4) + 1;
-		seatstring += to_string(seatnum);
-	}
-	else if(x == 1 || x == 5 || x == 9 || x == 13 || x == 17 ||  x == 21 ||  x == 25 ||
-	 x == 29 || x == 33 ||  x == 37 ||  x == 41 ||  x == 45 ||  x == 49 ||  x == 53 ||
-	  x == 57 ||  x == 61 ||  x == 65 ||  x == 69 )
-	{
-		seatstring += "B";
-		if(x >= 5)
-		{
-			seatnum = (seatnum/4) + 1;
-			seatstring += to_string(seatnum);
-		}
-		else
-		seatstring += to_string(seatnum-1);
-	}
-	else if(x == 2 || x == 6 || x == 10 || x == 14 || x == 18 ||  x == 22 ||  x == 26 ||
-	 x == 30 || x == 34 ||  x == 38 ||  x == 42 ||  x == 46 ||  x == 50 ||  x == 54 ||
-	  x == 58 ||  x == 62 ||  x == 66 ||  x == 70 )
-	{
-		seatstring += "C";
-		if(x >= 6)
-		{
-			seatnum = (seatnum/4) + 1;
-			seatstring += to_string(seatnum);
-		}
-		else
-		seatstring += to_string(seatnum-2);
-	}
-	else
-	{
-		seatstring += "D";
-		if(x >= 7)
-		{
-			seatnum = (x/4) + 1;
-			seatstring += to_string(seatnum);
-		}
-		else
-		seatstring += to_string(seatnum-3);
-	}
-	return seatstring;
-}
+string seatIntToStr(int);
 
 //takes in seat# as string, returns seat# as int index in seating array
-//(i.e: input "A1" => returns 0)
-//			B1 => 1
-//			D1 => 3
-//			A2 => 4
-//(i.e: unput "D18" => returns 71)
-int seatStrToInt(string x)
-{
-	string rowNumAsString = "";
-	rowNumAsString += x[1];
-	if(x.length() > 2)
-	{
-		rowNumAsString += x[2];
-	}
-	//rowNumAsString now contains the one or two digit row (1-18),
-	//here converted into int.
-	int rowNumAsInt = stoi(rowNumAsString);
-	//decrement by one to get as value from 0-17
-	rowNumAsInt--;
-	if (x[0] == 'A')
-	{
-		int arrayseatval = 0;
-		for(int x = 0; x < rowNumAsInt; x++){
-			arrayseatval += 4;
-		}
-		return arrayseatval;
-	}
-	else if (x[0] == 'B')
-	{
-		int arrayseatval = 1;
-		for(int x = 0; x < rowNumAsInt; x++){
-			arrayseatval += 4;
-		}
-		return arrayseatval;
-	}
-	else if (x[0] == 'C')
-	{
-		int arrayseatval = 2;
-		for(int x = 0; x < rowNumAsInt; x++){
-			arrayseatval += 4;
-		}
-		return arrayseatval;
-	}
-	else
-	{
-		int arrayseatval = 3;
-		for(int x = 0; x < rowNumAsInt; x++){
-			arrayseatval += 4;
-		}
-		return arrayseatval;
-	}
-}
+int seatStrToInt(string);
 
 int main()
 {
+	//--- Creation of different seat arrays ---
 	//# of Rows: 18
 	//# of Seats per Row: 4
 	//Total Seats= 72
@@ -223,7 +117,7 @@ int main()
 	};
 
 	
-	// ================================================= Hardcoded admin accounts =========================================================
+	// === Hardcoded admin accounts ===
 	Account admin1 = Account("admin1", "admin", "Danny Pham", "N/A", "N/A", "10802 Stanford Ave, Garden Grove, CA 92840", "dpham92@csu.fullerton.edu", "Sept 22, 1992", "N/A", "(949) 631 - 1166", "M");
 	Account admin2 = Account("admin2", "admin", "Brian Trinh", "N/A", "N/A", "13221 Newhope St, Garden Grove, CA, 92843", "briantrinh@csu.fullerton.edu", "May 18, 1994", "N/A", "(714) 723 - 1637", "M");
 	Account admin3 = Account("admin3", "admin", "Royce Nguyen", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "N/A", "M");
@@ -234,9 +128,8 @@ int main()
 	accountList.push_back(admin2);
 	accountList.push_back(admin3);
 	accountList.push_back(admin4);
-	// ===========================================================================================================================================
 	
-	//=============================== Creation of Unique Flights =========================================
+	//=== Creation of Unique Flights ===
 	Flight flight1 = Flight("NE123", "CLT", "BOS", 8, 1, 2018, 800, 8, 1, 2018, 1015, seating1, 449.99);
 	Flight flight2 = Flight("NE435", "BDL", "JFK", 8, 1, 2018, 1200, 8, 1, 2018, 1500, seating2, 365.99);
 	Flight flight3 = Flight("NE234", "LGA", "PHL", 8, 1, 2018, 1130, 8, 1, 2018, 1300, seating3, 299.99);
@@ -259,9 +152,8 @@ int main()
 	flightList.push_back(flight8);
 	flightList.push_back(flight9);
 	flightList.push_back(flight10);
-	//---------------------------------------------------------------------------------------------------------------
 	
-	// ================================ Login Segment =================================
+	// === Login Segment ===
 	// Danny Pham 07/28/18
 	cout << "Welcome to Northeast Airlines!\n";
 	
@@ -400,9 +292,6 @@ int main()
 	if (userFound && userValidated) {
 		
 		cout << "\t\tWELCOME" << endl;
-		//accountList[accountListIter].getName() << "!\n";
-		//accountList[accountListIter].print();
-
 		string selection = "";
 		while (selection.compare("4") != 0) 
 		{
@@ -783,6 +672,7 @@ int main()
 										system("CLS");
 										//update seating array for specified flight
 										flightList[selectedFlight].seats[seatStrToInt(seatChoice)] = 'X';
+										
 										//add booking to account
 										accountList[accountListIter].addBooking(flightList[selectedFlight].getFlightNumber(), accountList[accountListIter].getID(), seatStrToInt(seatChoice));
 										cout << "\t\tSUCCESS!" << endl;
@@ -1322,4 +1212,112 @@ int main()
 	cout << endl;
 	system("pause");
 	return 0;
+}
+//===FUNCTION DEFINITIONS===
+
+void printHeader()
+{
+	cout << "FLIGHT NUMBER\tTO\tFROM\tDEPARTURE DATE\tARRIVAL DATE\tAVAILABLE SEATS\n";
+	cout << "-------------------------------------------------------------------------------\n";
+}
+
+string seatIntToStr(int x)
+{
+	string seatstring = "";
+	int seatnum = x + 1;
+	
+	if(x == 0 || x == 4 || x == 8 || x == 12 || x == 16 ||  x == 20 ||  x == 24 ||
+	 x == 28 || x == 32 ||  x == 36 ||  x == 40 ||  x == 44 ||  x == 48 ||  x == 52 ||
+	  x == 56 ||  x == 60 ||  x == 64 ||  x == 68 )
+	{
+		seatstring += "A";
+		if(x >= 4)
+			seatnum = (seatnum/4) + 1;
+		seatstring += to_string(seatnum);
+	}
+	else if(x == 1 || x == 5 || x == 9 || x == 13 || x == 17 ||  x == 21 ||  x == 25 ||
+	 x == 29 || x == 33 ||  x == 37 ||  x == 41 ||  x == 45 ||  x == 49 ||  x == 53 ||
+	  x == 57 ||  x == 61 ||  x == 65 ||  x == 69 )
+	{
+		seatstring += "B";
+		if(x >= 5)
+		{
+			seatnum = (seatnum/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-1);
+	}
+	else if(x == 2 || x == 6 || x == 10 || x == 14 || x == 18 ||  x == 22 ||  x == 26 ||
+	 x == 30 || x == 34 ||  x == 38 ||  x == 42 ||  x == 46 ||  x == 50 ||  x == 54 ||
+	  x == 58 ||  x == 62 ||  x == 66 ||  x == 70 )
+	{
+		seatstring += "C";
+		if(x >= 6)
+		{
+			seatnum = (seatnum/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-2);
+	}
+	else
+	{
+		seatstring += "D";
+		if(x >= 7)
+		{
+			seatnum = (x/4) + 1;
+			seatstring += to_string(seatnum);
+		}
+		else
+		seatstring += to_string(seatnum-3);
+	}
+	return seatstring;
+}
+
+int seatStrToInt(string x)
+{
+	string rowNumAsString = "";
+	rowNumAsString += x[1];
+	if(x.length() > 2)
+	{
+		rowNumAsString += x[2];
+	}
+	//rowNumAsString now contains the one or two digit row (1-18),
+	//here converted into int.
+	int rowNumAsInt = stoi(rowNumAsString);
+	//decrement by one to get as value from 0-17
+	rowNumAsInt--;
+	if (x[0] == 'A')
+	{
+		int arrayseatval = 0;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
+	}
+	else if (x[0] == 'B')
+	{
+		int arrayseatval = 1;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
+	}
+	else if (x[0] == 'C')
+	{
+		int arrayseatval = 2;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
+	}
+	else
+	{
+		int arrayseatval = 3;
+		for(int x = 0; x < rowNumAsInt; x++){
+			arrayseatval += 4;
+		}
+		return arrayseatval;
+	}
 }
