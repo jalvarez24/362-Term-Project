@@ -10,5 +10,4 @@ Brian Trinh
 
 Danny Pham
 
-![Image of UC Diagram]
-(https://raw.githubusercontent.com/jalvarez24/362-Term-Project/master/362%20Images/UC%20Diagram.png)
+![Image of UC Diagram](https://raw.githubusercontent.com/jalvarez24/362-Term-Project/master/362%20Images/UC%20Diagram.png)
