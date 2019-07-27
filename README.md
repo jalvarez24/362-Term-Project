@@ -9,3 +9,6 @@ Royce Nguyen
 Brian Trinh
 
 Danny Pham
+
+![Image of UC Diagram]
+(https://github.com/jalvarez24/362-Term-Project/blob/master/362%20Images/UC%20Diagram.png)
